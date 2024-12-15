@@ -1,8 +1,28 @@
-package net.slingspot.pickem.shared.fixture
+package net.slingspot.pickem.shared
 
 import net.slingspot.pickem.server.game.calculate
-import net.slingspot.pickem.shared.model.Progress.Final
-import net.slingspot.pickem.shared.model.Progress.Running
+import net.slingspot.pickem.shared.fixture.Franchises
+import net.slingspot.pickem.shared.fixture.assertContendersEquals
+import net.slingspot.pickem.shared.fixture.assertGameStatusEquals
+import net.slingspot.pickem.shared.fixture.at
+import net.slingspot.pickem.shared.fixture.bengalsCowboys
+import net.slingspot.pickem.shared.fixture.billsRams
+import net.slingspot.pickem.shared.fixture.chargersChiefs
+import net.slingspot.pickem.shared.fixture.erica
+import net.slingspot.pickem.shared.fixture.final
+import net.slingspot.pickem.shared.fixture.on
+import net.slingspot.pickem.shared.fixture.player1
+import net.slingspot.pickem.shared.fixture.player2
+import net.slingspot.pickem.shared.fixture.player3
+import net.slingspot.pickem.shared.fixture.players
+import net.slingspot.pickem.shared.fixture.running
+import net.slingspot.pickem.shared.fixture.shane
+import net.slingspot.pickem.shared.fixture.turtle
+import net.slingspot.pickem.shared.fixture.week12
+import net.slingspot.pickem.shared.fixture.week12picks
+import net.slingspot.pickem.shared.fixture.week14contests
+import net.slingspot.pickem.shared.fixture.week14playersPicks
+import net.slingspot.pickem.shared.model.Progress
 import net.slingspot.pickem.shared.model.entities.Game
 import net.slingspot.pickem.shared.model.entities.GameStatus
 import net.slingspot.pickem.shared.model.entities.Picks
@@ -87,7 +107,7 @@ class GameCalculatorTest {
             scores = players.associateWith { 0 },
             rankings = listOf(Ranking(0, players)),
             contenders = players,
-            progress = Running
+            progress = Progress.Running
         )
 
         val actual = game.calculate()
@@ -112,7 +132,7 @@ class GameCalculatorTest {
             scores = players.associateWith { 1 },
             rankings = listOf(Ranking(1, players)),
             contenders = players,
-            progress = Final
+            progress = Progress.Final
         )
 
         val actual = game.calculate()
@@ -141,7 +161,7 @@ class GameCalculatorTest {
             scores = players.associateWith { 1 },
             rankings = listOf(Ranking(1, players)),
             contenders = players,
-            progress = Final
+            progress = Progress.Final
         )
 
         val actual = game.calculate()
@@ -174,7 +194,7 @@ class GameCalculatorTest {
             ),
             rankings = listOf(Ranking(1, setOf(player1)), Ranking(0, setOf(player2, player3))),
             contenders = setOf(player1),
-            progress = Final
+            progress = Progress.Final
         )
 
         val actual = game.calculate()
@@ -212,7 +232,7 @@ class GameCalculatorTest {
             ),
             rankings = listOf(Ranking(1, setOf(player1, player2)), Ranking(0, setOf(player3))),
             contenders = setOf(player1, player2),
-            progress = Running
+            progress = Progress.Running
         )
 
         val actual = game.calculate()
@@ -233,21 +253,21 @@ class GameCalculatorTest {
         assertContendersEquals(expected, actual)
 
         billsRams.score = Score(home = 42, away = 44)
-        billsRams.progress = Final
+        billsRams.progress = Progress.Final
 
         expected = setOf(erica, turtle, shane)
         actual = game.calculate().contenders
         assertContendersEquals(expected, actual)
 
         chargersChiefs.score = Score(home = 19, away = 17)
-        chargersChiefs.progress = Final
+        chargersChiefs.progress = Progress.Final
 
         expected = setOf(erica, shane)
         actual = game.calculate().contenders
         assertContendersEquals(expected, actual)
 
         bengalsCowboys.score = Score(home = 20, away = 27)
-        bengalsCowboys.progress = Final
+        bengalsCowboys.progress = Progress.Final
 
         expected = setOf(shane)
         actual = game.calculate().contenders
