@@ -1,4 +1,5 @@
 rootProject.name = "picks"
+
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
@@ -30,5 +31,5 @@ dependencyResolutionManagement {
 
 include(":composeApp")
 include(":server")
+include(":server:espn")
 include(":shared")
-include(":espn")

@@ -6,14 +6,15 @@ plugins {
 
 group = "net.slingspot"
 version = "1.0.0"
+
 application {
-    mainClass.set("net.slingspot.ApplicationKt")
+    mainClass.set("net.slingspot.picks.server.ApplicationKt")
     applicationDefaultJvmArgs =
         listOf("-Dio.ktor.development=${extra["io.ktor.development"] ?: "false"}")
 }
 
 dependencies {
-    implementation(projects.espn)
+    implementation(projects.server.espn)
     implementation(projects.shared)
 
     implementation(project.dependencies.platform(libs.koin.bom))
