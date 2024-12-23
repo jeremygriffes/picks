@@ -39,9 +39,10 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+            api(libs.kotlinx.datetime)
+
             implementation(project.dependencies.platform(libs.koin.bom))
             implementation(libs.koin.core)
-            implementation(libs.kotlinx.datetime)
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.client.core)

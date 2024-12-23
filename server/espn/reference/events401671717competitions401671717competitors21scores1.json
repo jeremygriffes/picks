@@ -1,0 +1,10 @@
+{
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671717/competitions/401671717/competitors/21/scores/1?lang=en&region=us",
+  "value": 33,
+  "displayValue": "33",
+  "winner": false,
+  "source": {
+    "id": "1",
+    "description": "Basic/Manual"
+  }
+}

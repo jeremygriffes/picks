@@ -1,7 +1,6 @@
 plugins {
     id("java-library")
     alias(libs.plugins.kotlinJvm)
-    alias(libs.plugins.serialization)
 }
 
 java {
@@ -16,10 +15,5 @@ kotlin {
 }
 
 dependencies {
-    implementation(projects.server.nfl)
     implementation(projects.shared)
-
-    implementation(libs.ktor.client.core)
-    implementation(libs.ktor.client.cio)
-    implementation(libs.kotlinx.serialization.json)
 }

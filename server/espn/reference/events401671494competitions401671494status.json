@@ -1,0 +1,15 @@
+{
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671494/competitions/401671494/status?lang=en&region=us",
+  "clock": 721,
+  "displayClock": "12:01",
+  "period": 1,
+  "type": {
+    "id": "2",
+    "name": "STATUS_IN_PROGRESS",
+    "state": "in",
+    "completed": false,
+    "description": "In Progress",
+    "detail": "12:01 - 1st Quarter",
+    "shortDetail": "12:01 - 1st"
+  }
+}

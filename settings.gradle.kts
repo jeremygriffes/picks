@@ -32,4 +32,5 @@ dependencyResolutionManagement {
 include(":composeApp")
 include(":server")
 include(":server:espn")
+include(":server:nfl")
 include(":shared")

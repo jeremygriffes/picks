@@ -1,0 +1,9 @@
+{
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671717/competitions/401671717/competitors/28/scores/2?lang=en&region=us",
+  "value": 36,
+  "displayValue": "36",
+  "source": {
+    "id": "2",
+    "description": "Feed"
+  }
+}
