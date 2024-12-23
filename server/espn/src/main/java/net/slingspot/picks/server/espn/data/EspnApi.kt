@@ -1,15 +1,13 @@
 package net.slingspot.picks.server.espn.data
 
-import kotlinx.datetime.Instant
+import io.ktor.client.HttpClient
+import io.ktor.client.request.get
 import net.slingspot.picks.server.espn.model.Logo
 import net.slingspot.picks.server.espn.model.Season
 
-class EspnApi {
-    suspend fun season(instant: Instant): Season {
-        TODO()
-    }
-
-    suspend fun current(): Season {
+class EspnApi(private val httpClient: HttpClient) {
+    suspend fun season(year: Int): Season {
+        httpClient.get(SEASONS + year)
         TODO()
     }
 
@@ -22,6 +20,9 @@ class EspnApi {
     }
 
     companion object {
-        private const val PATH = "https://sports.core.api.espn.com"
+        private const val LOCALE = "?lang=en&region=us"
+        private const val PATH = "https://sports.core.api.espn.com/"
+        private const val FOOTBALL = PATH + "/v2/sports/football/leagues/nfl/"
+        private const val SEASONS = FOOTBALL + "seasons/"
     }
 }

@@ -1,4 +1,3 @@
-# this appears to be the root where you can dig into further urls.
 {
   "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl?lang=en&region=us",
   "id": "28",
