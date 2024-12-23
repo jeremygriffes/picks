@@ -12,13 +12,15 @@ data class Season(
     val type: Type
 ) {
     /**
-     * @param startDate start of season, including preseason
-     * @param endDate end of season, including off season
-     *
+     * @param type part of season: 1=pre, 2=regular, 3=post, 4=off
+     * @param year which season
+     * @param startDate start of this part of the season (see type)
+     * @param endDate end of this part of the season (see type)
+     * @param week the details of the week
+     * @param weeks references to all of the weeks of this part of the season (see type)
      */
     @Serializable
     data class Type(
-        val ref: String,
         val type: Int,
         val name: String,
         val year: Int,

@@ -11,7 +11,6 @@
   "hasStandings": true,
   "hasLegs": false,
   "groups": {
-    # This returns the conference types: AFC, NFC. Not interesting for this app.
     "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/types/2/groups?lang=en&region=us"
   },
   "week": {
