@@ -1,14 +1,14 @@
 package net.slingspot.picks.server.espn.model
 
-import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class Competition(
     val id: String,
-    val date: Instant,
+    val date: String,
     val timeValid: Boolean,
     val dateValid: Boolean,
     val competitors: List<Competitor>,
-    val status: Status
+    val status: Ref,
+    val odds: Ref
 )

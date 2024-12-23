@@ -6,6 +6,6 @@ import kotlinx.serialization.Serializable
 data class Competitor(
     val id: String,
     val homeAway: String,
-    val team: Team,
-    val score: Score
+    val team: Ref,
+    val score: Ref
 )

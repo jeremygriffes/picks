@@ -1,6 +1,5 @@
 package net.slingspot.picks.server.espn.model
 
-import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
 
 @Serializable

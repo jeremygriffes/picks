@@ -8,5 +8,5 @@ data class Weeks(
     val pageIndex: Int,
     val pageSize: Int,
     val pageCount: Int,
-    val items: List<Week>
+    val items: List<Ref>
 )

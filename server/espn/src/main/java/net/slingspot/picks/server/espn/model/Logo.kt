@@ -1,6 +1,5 @@
 package net.slingspot.picks.server.espn.model
 
-import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -9,5 +8,5 @@ data class Logo(
     val width: Int,
     val height: Int,
     val alt: String,
-    val lastUpdated: Instant
+    val lastUpdated: String
 )

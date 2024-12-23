@@ -8,5 +8,5 @@ data class Events(
     val pageIndex: Int,
     val pageSize: Int,
     val pageCount: Int,
-    val items: List<Event>
+    val items: List<Ref>
 )

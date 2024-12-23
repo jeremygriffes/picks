@@ -1,0 +1,15 @@
+{
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401437947/competitions/401437947/status?lang=en&region=us",
+  "clock": 372,
+  "displayClock": "6:12",
+  "period": 1,
+  "type": {
+    "id": "5",
+    "name": "STATUS_CANCELED",
+    "state": "post",
+    "completed": false,
+    "description": "Canceled",
+    "detail": "Canceled",
+    "shortDetail": "Canceled"
+  }
+}

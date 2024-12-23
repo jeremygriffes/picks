@@ -1,9 +1,10 @@
 package net.slingspot.picks.server.espn.model
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Score(
-    val value: Int,
-    val winner: Boolean = false
+data class Ref(
+    @SerialName("\$ref")
+    val ref: String
 )

@@ -1,32 +1,30 @@
 package net.slingspot.picks.server.espn.model
 
-import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
 
 @Serializable
+/**
+ * @param year encompassing the full season, including into the following year (off season)
+ * @param type current data of the type (pre-, regular-, post-, or off-season)
+ */
 data class Season(
     val year: Int,
-    val startDate: Instant,
-    val endDate: Instant,
     val type: Type
 ) {
     /**
-     * `type` appears to be:
+     * @param startDate start of season, including preseason
+     * @param endDate end of season, including off season
      *
-     * 1. Preseason
-     * 2. Regular season
-     * 3. Post season
-     *
-     * Unclear if type affects the content; post season may not have weeks?
      */
     @Serializable
     data class Type(
         val ref: String,
-        val id: String,
         val type: Int,
         val name: String,
+        val year: Int,
+        val startDate: String,
+        val endDate: String,
         val week: Week,
-        val events: List<Event>,
-        val weeks: Weeks
+        val weeks: Ref
     )
 }
