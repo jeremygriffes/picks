@@ -13,7 +13,8 @@ import net.slingspot.picks.server.espn.model.Score
 import net.slingspot.picks.server.espn.model.Season
 import net.slingspot.picks.server.espn.model.Status
 
-class EspnApi {
+internal class EspnApi {
+    // TODO inject this.
     val http = HttpClient(CIO) {
         install(ContentNegotiation) {
             json(
@@ -37,8 +38,7 @@ class EspnApi {
     suspend fun competitionStatus(eventId: Int): Status =
         http.get(competitionStatusUrl(eventId)).body()
 
-    suspend fun score(eventId: Int, competitorId: Int): Score =
-        http.get(scoreUrl(eventId, competitorId)).body()
+    suspend fun score(eventId: Int): Score = http.get(scoreUrl(eventId, eventId)).body()
 
     companion object {
         private const val NFL = "https://sports.core.api.espn.com/v2/sports/football/leagues/nfl"

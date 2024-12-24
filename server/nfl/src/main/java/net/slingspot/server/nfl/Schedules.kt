@@ -1,7 +1,7 @@
 package net.slingspot.server.nfl
 
-import kotlinx.datetime.Instant
+import net.slingspot.picks.model.football.Schedule
 
-interface Schedule {
+interface Schedules {
     suspend fun scheduleOf(year: Int): Schedule
 }

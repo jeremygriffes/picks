@@ -5,6 +5,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Competition(
     val id: String,
+    val guid: String,
     val date: String,
     val timeValid: Boolean,
     val dateValid: Boolean,
