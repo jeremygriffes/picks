@@ -1,8 +1,8 @@
 package net.slingspot.picks.server.espn.data.cache
 
+import net.slingspot.picks.data.SimpleCrud
 import net.slingspot.picks.server.espn.model.Event
 
-/**
- * Primary key is `id`.
- */
-interface EventTable : Crud<String, Event>
+class EventTable : SimpleCrud<String, Event>() {
+    override fun keyOf(type: Event) = type.id
+}

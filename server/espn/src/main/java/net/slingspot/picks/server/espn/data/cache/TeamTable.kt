@@ -1,8 +1,8 @@
 package net.slingspot.picks.server.espn.data.cache
 
+import net.slingspot.picks.data.SimpleCrud
 import net.slingspot.picks.server.espn.model.Team
 
-/**
- * Primary key is `guid`.
- */
-interface TeamTable : Crud<String, Team>
+class TeamTable : SimpleCrud<String, Team>() {
+    override fun keyOf(type: Team) = type.guid
+}

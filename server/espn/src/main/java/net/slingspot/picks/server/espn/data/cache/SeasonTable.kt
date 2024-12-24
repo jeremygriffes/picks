@@ -1,8 +1,8 @@
 package net.slingspot.picks.server.espn.data.cache
 
+import net.slingspot.picks.data.SimpleCrud
 import net.slingspot.picks.server.espn.model.Season
 
-/**
- * Primary key is `year`.
- */
-interface SeasonTable : Crud<Int, Season>
+class SeasonTable : SimpleCrud<Int, Season>() {
+    override fun keyOf(type: Season) = type.year
+}

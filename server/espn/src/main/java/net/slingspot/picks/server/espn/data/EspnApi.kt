@@ -13,6 +13,9 @@ import net.slingspot.picks.server.espn.model.Score
 import net.slingspot.picks.server.espn.model.Season
 import net.slingspot.picks.server.espn.model.Status
 
+/**
+ * Performs a variety of calls to ESPN sports.core.api.
+ */
 internal class EspnApi {
     // TODO inject this.
     val http = HttpClient(CIO) {
