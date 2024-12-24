@@ -12,6 +12,7 @@ import net.slingspot.picks.server.espn.model.ItemList
 import net.slingspot.picks.server.espn.model.Score
 import net.slingspot.picks.server.espn.model.Season
 import net.slingspot.picks.server.espn.model.Status
+import net.slingspot.picks.server.espn.model.Team
 
 /**
  * Performs a variety of calls to ESPN sports.core.api.
@@ -32,9 +33,26 @@ internal class EspnApi {
 
     suspend inline fun <reified T> getRef(refUrl: String) = http.get(refUrl).body<T>()
 
+    suspend inline fun <reified T> getList(url: String): List<T> {
+        val loaded = mutableListOf<T>()
+        var index = 1
+        var count: Int
+
+        do {
+            val itemList = http.get(url + PAGE + index).body<ItemList>()
+
+            itemList.items.map { loaded.add(getRef(it.ref)) }
+
+            index = itemList.pageIndex
+            count = itemList.pageCount
+        } while (index < count)
+
+        return loaded.toList()
+    }
+
     suspend fun season(year: Int): Season = http.get(seasonUrl(year)).body()
 
-    suspend fun teams(year: Int): ItemList = http.get(teamsUrl(year)).body()
+    suspend fun teams(year: Int): List<Team> = getList(teamsUrl(year))
 
     suspend fun competition(eventId: Int): Competition = http.get(competitionUrl(eventId)).body()
 
@@ -54,6 +72,7 @@ internal class EspnApi {
         private const val COMPETITORS = "competitors"
         private const val SCORES = "scores"
         private const val TEAMS = "teams"
+        private const val PAGE = "?page="
 
         // http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024?lang=en&region=us
         private fun seasonUrl(year: Int) = "$NFL/$SEASONS/$year"
