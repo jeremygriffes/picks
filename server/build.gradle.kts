@@ -15,6 +15,7 @@ application {
 
 dependencies {
     implementation(projects.server.espn)
+    implementation(projects.server.nfl)
     implementation(projects.shared)
 
     implementation(project.dependencies.platform(libs.koin.bom))

@@ -2,11 +2,7 @@ package net.slingspot.picks.server.espn.data
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
-import io.ktor.client.engine.cio.CIO
-import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.request.get
-import io.ktor.serialization.kotlinx.json.json
-import kotlinx.serialization.json.Json
 import net.slingspot.picks.server.espn.model.Competition
 import net.slingspot.picks.server.espn.model.ItemList
 import net.slingspot.picks.server.espn.model.Score
@@ -17,20 +13,9 @@ import net.slingspot.picks.server.espn.model.Team
 /**
  * Performs a variety of calls to ESPN sports.core.api.
  */
-internal class EspnApi {
-    // TODO inject this.
-    val http = HttpClient(CIO) {
-        install(ContentNegotiation) {
-            json(
-                Json {
-                    ignoreUnknownKeys = true
-                    isLenient = true
-                    prettyPrint = true
-                }
-            )
-        }
-    }
-
+internal class EspnApi(
+    private val http: HttpClient
+) {
     suspend inline fun <reified T> getRef(refUrl: String) = http.get(refUrl).body<T>()
 
     suspend inline fun <reified T> getList(url: String): List<T> {
@@ -43,7 +28,7 @@ internal class EspnApi {
 
             itemList.items.map { loaded.add(getRef(it.ref)) }
 
-            index = itemList.pageIndex
+            index = itemList.pageIndex + 1
             count = itemList.pageCount
         } while (index < count)
 

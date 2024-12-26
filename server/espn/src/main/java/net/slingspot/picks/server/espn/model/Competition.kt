@@ -11,5 +11,5 @@ data class Competition(
     val dateValid: Boolean,
     val competitors: List<Competitor>,
     val status: Ref,
-    val odds: Ref
+    val odds: Ref? = null
 )

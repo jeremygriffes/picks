@@ -27,7 +27,7 @@ suspend fun <P : Any, T : Any> Crud<P, T>.upsert(type: T) {
     }
 }
 
-abstract class SimpleCrud<P : Any, T : Any> : Crud<P, T> {
+abstract class InMemoryTable<P : Any, T : Any> : Crud<P, T> {
     private val mutex = Mutex()
     private val data = mutableMapOf<P, T>()
 

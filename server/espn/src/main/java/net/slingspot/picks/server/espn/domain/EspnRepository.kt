@@ -3,6 +3,7 @@ package net.slingspot.picks.server.espn.domain
 import net.slingspot.picks.data.upsert
 import net.slingspot.picks.model.football.Contest
 import net.slingspot.picks.model.football.Franchise
+import net.slingspot.picks.model.football.Schedule
 import net.slingspot.picks.server.espn.data.EspnApi
 import net.slingspot.picks.server.espn.data.cache.Cache
 import net.slingspot.picks.server.espn.model.Event
@@ -22,24 +23,39 @@ internal class EspnRepository(
 
         val teams = api.teams(year)
 
+        println(season)
+
         teams.forEach {
             cache.teamTable.upsert(it)
+            println(it)
         }
 
         // Not sure yet how to handle the type. Pre/regular season weeks are known prior to the
         // season start, but post-season is not know until the regular season ends.
         val weeks = api.getList<Week>(season.type.weeks.ref)
 
-        weeks.forEach { week ->
+        println(weeks)
+
+        val weeksSize = weeks.size
+
+        weeks.forEachIndexed { weekIndex, week ->
             cache.weekTable.upsert(week)
+
+            println("week $weekIndex/$weeksSize $week")
 
             val events = api.getList<Event>(week.events.ref)
 
-            events.forEach { event ->
+            val eventsSize = events.size
+
+            events.forEachIndexed { eventIndex, event ->
                 cache.eventTable.upsert(event)
+
+                println("week $weekIndex/$weeksSize: event $eventIndex/$eventsSize $event")
 
                 event.competitions.forEach { competition ->
                     cache.competitionTable.upsert(competition)
+
+                    println(competition)
                 }
             }
         }
@@ -49,7 +65,7 @@ internal class EspnRepository(
         TODO("Not yet implemented")
     }
 
-    override suspend fun schedule(year: Int): Set<Franchise> {
+    override suspend fun schedule(year: Int): Schedule {
         TODO("Not yet implemented")
     }
 

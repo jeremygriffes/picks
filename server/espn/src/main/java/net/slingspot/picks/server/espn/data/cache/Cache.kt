@@ -1,21 +1,18 @@
 package net.slingspot.picks.server.espn.data.cache
 
-/**
- * The ESPN data source needs only an in-memory cache. There is no good reason to persist the data
- * other than possibly reducing calls to ESPN APIs.
- */
-class Cache {
-    val seasonTable = SeasonTable()
-    val teamTable = TeamTable()
-    val weekTable = WeekTable()
-    val eventTable = EventTable()
-    val competitionTable = CompetitionTable()
+import net.slingspot.picks.data.Crud
+import net.slingspot.picks.server.espn.model.Competition
+import net.slingspot.picks.server.espn.model.Event
+import net.slingspot.picks.server.espn.model.Season
+import net.slingspot.picks.server.espn.model.Team
+import net.slingspot.picks.server.espn.model.Week
 
-    suspend fun clear() {
-        seasonTable.clear()
-        teamTable.clear()
-        weekTable.clear()
-        eventTable.clear()
-        competitionTable.clear()
-    }
+interface Cache {
+    val seasonTable: Crud<Int, Season>
+    val teamTable: Crud<String, Team>
+    val weekTable: Crud<String, Week>
+    val eventTable: Crud<String, Event>
+    val competitionTable: Crud<String, Competition>
+
+    suspend fun clear()
 }

@@ -1,9 +1,13 @@
 package net.slingspot.picks.util
 
+import kotlinx.datetime.Clock
 import kotlinx.datetime.LocalTime
+import kotlinx.datetime.TimeZone
 import kotlinx.datetime.format.DateTimeComponents
 import kotlinx.datetime.format.DayOfWeekNames
 import kotlinx.datetime.format.char
+import kotlinx.datetime.toLocalDateTime
+import kotlin.time.Duration.Companion.days
 
 val daysOfWeek = DayOfWeekNames(
     "Mon",
@@ -24,3 +28,6 @@ val contestDateFormat = DateTimeComponents.Format {
     char('-')
     time(LocalTime.Formats.ISO)
 }
+
+fun Clock.currentSeason() =
+    (now() - 90.days).toLocalDateTime(TimeZone.currentSystemDefault()).year
