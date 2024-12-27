@@ -1,6 +1,8 @@
 package net.slingspot.picks.server.espn.model
 
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 @Serializable
 data class Team(
@@ -13,4 +15,6 @@ data class Team(
     val alternateColor: String,
     val isActive: Boolean,
     val logos: List<Logo>
-)
+) : EspnModel {
+    override fun serialize() = Json.encodeToString(this)
+}

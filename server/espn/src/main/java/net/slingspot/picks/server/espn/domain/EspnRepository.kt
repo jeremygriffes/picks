@@ -5,13 +5,13 @@ import net.slingspot.picks.model.football.Contest
 import net.slingspot.picks.model.football.Franchise
 import net.slingspot.picks.model.football.Schedule
 import net.slingspot.picks.server.espn.data.EspnApi
-import net.slingspot.picks.server.espn.data.cache.Cache
+import net.slingspot.picks.server.espn.data.cache.EspnCache
 import net.slingspot.picks.server.espn.model.Event
 import net.slingspot.picks.server.espn.model.Week
 import net.slingspot.server.nfl.NflDataSource
 
 internal class EspnRepository(
-    private val cache: Cache,
+    private val cache: EspnCache,
     private val api: EspnApi
 ) : NflDataSource {
     override suspend fun initialize(year: Int) {
@@ -51,12 +51,6 @@ internal class EspnRepository(
                 cache.eventTable.upsert(event)
 
                 println("week $weekIndex/$weeksSize: event $eventIndex/$eventsSize $event")
-
-                event.competitions.forEach { competition ->
-                    cache.competitionTable.upsert(competition)
-
-                    println(competition)
-                }
             }
         }
     }

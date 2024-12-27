@@ -10,10 +10,10 @@ import io.ktor.client.plugins.logging.Logging
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import net.slingspot.picks.server.espn.data.EspnApi
-import net.slingspot.picks.server.espn.data.cache.Cache
-import net.slingspot.picks.server.espn.data.cache.MemoryCache
+import net.slingspot.picks.server.espn.data.cache.EspnCache
 import net.slingspot.picks.server.espn.domain.EspnRepository
 import net.slingspot.server.nfl.NflDataSource
+import okio.FileSystem
 import org.koin.dsl.module
 
 val espnModule = module {
@@ -36,6 +36,6 @@ val espnModule = module {
         }
     }
     single { EspnApi(get()) }
-    single<Cache> { MemoryCache() }
+    single { EspnCache(FileSystem.SYSTEM) }
     single<NflDataSource> { EspnRepository(get(), get()) }
 }
