@@ -30,6 +30,10 @@ fun main() {
 
     runBlocking { nflDataSource.initialize(clock.currentSeason()) }
 
+    // TODO set up alarms to fetch data when a contest begins. While a contest is in progress,
+    //  fetch status & scores once every minute. Starting in the 4th quarter, fetch every 20 seconds
+    //  until the contest is final.
+
     embeddedServer(CIO, port = SERVER_PORT, host = "0.0.0.0", module = Application::module)
         .start(wait = true)
 }

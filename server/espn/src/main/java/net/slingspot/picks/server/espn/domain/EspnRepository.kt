@@ -40,6 +40,9 @@ internal class EspnRepository(
 
             franchises[year] = franchisesThisSeason
             schedule[year] = season.toSchedule(franchisesThisSeason, events)
+            
+            // TODO build out current status & scores of games.
+            //  For all completed games, store the data to file so we don't have to fetch it.
         }
     }
 
