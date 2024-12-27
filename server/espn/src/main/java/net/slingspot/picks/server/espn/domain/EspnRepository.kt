@@ -14,27 +14,29 @@ internal class EspnRepository(
     private val cache: EspnCache,
     private val api: EspnApi
 ) : NflDataSource {
-    override suspend fun initialize(year: Int) {
+    override suspend fun initialize(year: Int, rebuildCache: Boolean) {
         cache.clear()
 
-        val season = api.season(year)
+        if (rebuildCache) {
+            TODO()
+            // cache.eraseEverything()
+        }
 
-        cache.seasonTable.upsert(season)
+        cache.teamTable.all().takeUnless { it.isEmpty() } ?: run {
+            api.teams(year).onEach {
+                cache.teamTable.upsert(it)
+            }
+        }
 
-        val teams = api.teams(year)
-
-        println(season)
-
-        teams.forEach {
-            cache.teamTable.upsert(it)
-            println(it)
+        val season = cache.seasonTable.get(year) ?: run {
+            api.season(year).also {
+                cache.seasonTable.upsert(it)
+            }
         }
 
         // Not sure yet how to handle the type. Pre/regular season weeks are known prior to the
         // season start, but post-season is not know until the regular season ends.
         val weeks = api.getList<Week>(season.type.weeks.ref)
-
-        println(weeks)
 
         val weeksSize = weeks.size
 

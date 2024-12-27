@@ -11,13 +11,13 @@ abstract class FileStorage<P : Any, T : EspnModel>(
     private val fileSystem: FileSystem,
     private val path: Path
 ) : Crud<P, T> {
-    private val mutex = Mutex()
-    private val data = mutableMapOf<P, T>()
+    protected val mutex = Mutex()
+    protected val data = mutableMapOf<P, T>()
 
     abstract fun keyOf(type: T): P
     abstract fun deserialize(json: String): T
 
-    override suspend fun get(key: P) = mutex.withLock {
+    override suspend fun get(key: P): T? = mutex.withLock {
         data[key] ?: load(key).also { data[key] = it }
     }
 
@@ -55,8 +55,22 @@ abstract class FileStorage<P : Any, T : EspnModel>(
         }
     }
 
+    suspend fun all(): List<T> = mutex.withLock {
+        data.values.toList().takeIf { it.isNotEmpty() }
+            ?: run {
+                loadAll().onEach { data[keyOf(it)] = it }
+            }
+    }
+
     private fun load(key: P): T {
-        val filePath = path / key.toString()
+        return load(path / key.toString())
+    }
+
+    private fun loadAll(): List<T> {
+        return fileSystem.list(path).map { load(it) }
+    }
+
+    private fun load(filePath: Path): T {
         val json = fileSystem.read(filePath) { readUtf8() }
         return deserialize(json)
     }
