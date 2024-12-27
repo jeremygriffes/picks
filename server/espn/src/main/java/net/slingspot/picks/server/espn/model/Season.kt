@@ -1,8 +1,12 @@
 package net.slingspot.picks.server.espn.model
 
+import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import net.slingspot.picks.model.football.Contest
+import net.slingspot.picks.model.football.Franchise
+import net.slingspot.picks.model.football.Schedule
 
 /**
  * @param year encompassing the full season, including into the following year (off season)
@@ -32,4 +36,57 @@ data class Season(
         val endDate: String,
         val weeks: Ref
     )
+}
+
+/**
+ * Maps an ESPN [Season] to a Picks domain model [Schedule].
+ */
+internal fun Season.toSchedule(
+    franchises: Set<Franchise>,
+    events: Map<String, List<Event>>
+): Schedule {
+    val allEvents = events.toList().fold(emptyList<Event>()) { acc, pair -> acc + pair.second }
+
+    val contests = allEvents.map { event ->
+        val (away, home) = event.contestants(franchises)
+
+        Contest(
+            id = event.id,
+            home = home,
+            away = away,
+            scheduledTime = timeOf(event.date)
+        )
+    }
+
+    return Schedule(
+        id = year.toString(),
+        name = type.name,
+        contests = contests.toSet()
+    )
+}
+
+/**
+ * @return Pair of `<Away Franchise, Home Franchise>`
+ */
+private fun Event.contestants(franchises: Set<Franchise>): Pair<Franchise, Franchise> {
+    val competition = competitions.first()
+    val (team1, team2) = competition.competitors
+    val team1isAway = team1.homeAway == "away"
+    val team1Franchise = franchises.first { it.id == team1.id }
+    val team2Franchise = franchises.first { it.id == team2.id }
+
+    return if (team1isAway) team1Franchise to team2Franchise
+    else team2Franchise to team1Franchise
+}
+
+/**
+ * ESPN uses timestamps like "2024-09-06T00:40Z" for events, which is valid ISO 8601.
+ * However, kotlinx.datetime.Instant.parse does not accept it without seconds.
+ *
+ * Try to parse the string as it stands. If it fails, include seconds and reparse.
+ */
+private fun timeOf(iso8601: String) = try {
+    Instant.parse(iso8601)
+} catch (_: Exception) {
+    Instant.parse(iso8601.dropLast(1) + ":00Z")
 }

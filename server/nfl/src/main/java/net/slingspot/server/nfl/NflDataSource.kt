@@ -9,7 +9,7 @@ interface NflDataSource {
 
     suspend fun franchises(year: Int): Set<Franchise>
 
-    suspend fun schedule(year: Int): Schedule
+    suspend fun schedule(year: Int): Schedule?
 
     suspend fun update(contest: Contest)
 }

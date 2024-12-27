@@ -5,12 +5,15 @@ import kotlinx.coroutines.sync.withLock
 import net.slingspot.picks.data.Crud
 import net.slingspot.picks.server.espn.model.EspnModel
 import okio.FileSystem
+import okio.FileSystem.Companion.SYSTEM_TEMPORARY_DIRECTORY
 import okio.Path
 
 abstract class FileStorage<P : Any, T : EspnModel>(
     private val fileSystem: FileSystem,
-    private val path: Path
+    pathName: String
 ) : Crud<P, T> {
+    private val path = SYSTEM_TEMPORARY_DIRECTORY / ROOT_DIR / pathName
+
     protected val mutex = Mutex()
     protected val data = mutableMapOf<P, T>()
 
@@ -18,7 +21,7 @@ abstract class FileStorage<P : Any, T : EspnModel>(
     abstract fun deserialize(json: String): T
 
     override suspend fun get(key: P): T? = mutex.withLock {
-        data[key] ?: load(key).also { data[key] = it }
+        data[key] ?: load(key)?.also { data[key] = it }
     }
 
     override suspend fun insert(type: T) {
@@ -49,12 +52,6 @@ abstract class FileStorage<P : Any, T : EspnModel>(
         }
     }
 
-    suspend fun clear() {
-        mutex.withLock {
-            data.clear()
-        }
-    }
-
     suspend fun all(): List<T> = mutex.withLock {
         data.values.toList().takeIf { it.isNotEmpty() }
             ?: run {
@@ -62,17 +59,24 @@ abstract class FileStorage<P : Any, T : EspnModel>(
             }
     }
 
-    private fun load(key: P): T {
+    private fun load(key: P): T? {
         return load(path / key.toString())
     }
 
     private fun loadAll(): List<T> {
-        return fileSystem.list(path).map { load(it) }
+        return if (!fileSystem.exists(path))
+            emptyList()
+        else
+            fileSystem.list(path).mapNotNull { load(it) }
     }
 
-    private fun load(filePath: Path): T {
-        val json = fileSystem.read(filePath) { readUtf8() }
-        return deserialize(json)
+    private fun load(filePath: Path): T? {
+        return if (!fileSystem.exists(path))
+            null
+        else
+            deserialize(
+                fileSystem.read(filePath) { readUtf8() }
+            )
     }
 
     private fun save(type: T) {
@@ -84,5 +88,9 @@ abstract class FileStorage<P : Any, T : EspnModel>(
     private fun remove(key: P) {
         val filePath = path / key.toString()
         fileSystem.delete(filePath)
+    }
+
+    companion object {
+        private const val ROOT_DIR = "picks_espn_cache"
     }
 }

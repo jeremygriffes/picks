@@ -32,16 +32,16 @@ internal class EspnApi(
     suspend inline fun <reified T> getList(url: String): List<T> {
         val loaded = mutableListOf<T>()
         var index = 1
-        var count: Int
+        var count = 1
 
-        do {
+        while (index <= count) {
             val itemList = http.get(url + PAGE + index).body<ItemList>()
 
             itemList.items.map { loaded.add(getRef(it.ref)) }
 
             index = itemList.pageIndex + 1
             count = itemList.pageCount
-        } while (index < count)
+        }
 
         return loaded.toList()
     }

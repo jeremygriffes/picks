@@ -9,11 +9,4 @@ class EspnCache(
     val teamTable = TeamTable(fileSystem)
     val weekTable = WeekTable(fileSystem)
     val eventTable = EventTable(fileSystem)
-
-    suspend fun clear() {
-        seasonTable.clear()
-        teamTable.clear()
-        weekTable.clear()
-        eventTable.clear()
-    }
 }
