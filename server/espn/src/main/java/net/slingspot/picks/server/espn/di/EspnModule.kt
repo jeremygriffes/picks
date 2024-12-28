@@ -37,5 +37,5 @@ val espnModule = module {
     }
     single { EspnApi(get()) }
     single { EspnCache(FileSystem.SYSTEM) }
-    single<NflDataSource> { EspnRepository(get(), get(), get()) }
+    single<NflDataSource> { EspnRepository(get(), get(), get(), get()) }
 }

@@ -1,8 +1,10 @@
 package net.slingspot.picks.server.espn.domain
 
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.datetime.Clock
+import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 import net.slingspot.picks.data.upsert
@@ -11,6 +13,7 @@ import net.slingspot.picks.model.football.Franchise
 import net.slingspot.picks.model.football.Schedule
 import net.slingspot.picks.server.espn.data.EspnApi
 import net.slingspot.picks.server.espn.data.cache.EspnCache
+import net.slingspot.picks.server.espn.data.refresh.periodicallyRefresh
 import net.slingspot.picks.server.espn.model.CompetitionScores
 import net.slingspot.picks.server.espn.model.Event
 import net.slingspot.picks.server.espn.model.Score
@@ -27,13 +30,14 @@ import net.slingspot.server.nfl.NflDataSource
 internal class EspnRepository(
     private val cache: EspnCache,
     private val api: EspnApi,
-    private val clock: Clock
+    private val clock: Clock,
+    private val scope: CoroutineScope
 ) : NflDataSource {
     private val mutex = Mutex()
 
     private val franchises = mutableMapOf<Int, Set<Franchise>>()
     private val schedule = mutableMapOf<Int, Schedule>()
-    private val eventsByWeek = mutableMapOf<String, List<Event>>()
+    private val eventsByWeek = mutableMapOf<Instant, List<Event>>()
     private val allEvents = mutableListOf<Event>()
 
     override suspend fun initialize(year: Int, rebuildCache: Boolean) {
@@ -46,7 +50,7 @@ internal class EspnRepository(
             val teams = teamsOf(year)
             val season = seasonOf(year)
             val weeks = weeksOf(season.type)
-            eventsByWeek.putAll(weeks.associate { it.startDate to eventsOf(it) })
+            eventsByWeek.putAll(weeks.associate { timeOf(it.startDate) to eventsOf(it) })
             allEvents.clear()
             allEvents.addAll(
                 eventsByWeek.toList().fold(emptyList()) { acc, pair -> acc + pair.second }
@@ -82,8 +86,27 @@ internal class EspnRepository(
 
             schedule[clock.currentSeason()]?.contests
                 ?.filter { today.date == it.scheduledTime.toLocalDateTime(zone).date }
-                ?.onEach { allEvents.firstOrNull { event -> event.id == it.id }?.update(it) }
                 ?: emptyList()
+        }
+    }
+
+    override suspend fun thisWeek(): List<Contest> {
+        return mutex.withLock {
+            val today = clock.now()
+            val week = eventsByWeek.keys.minBy { it < today }
+            val events = requireNotNull(eventsByWeek[week])
+
+            schedule[clock.currentSeason()]?.contests
+                ?.filter { contest -> events.any { it.id == contest.id } }
+                ?: emptyList()
+        }
+    }
+
+    override suspend fun week(year: Int, week: Int): List<Contest> {
+        return mutex.withLock {
+            // Need to improve the data model so that it's easier to get events by a week number.
+            // May want to introduce a Week class with an index and Contest set.
+            emptyList()
         }
     }
 
@@ -116,7 +139,11 @@ internal class EspnRepository(
         val remainingContests = contests.updateFrom(savedScores)
 
         remainingContests.forEach { contest ->
-            events[contest.id]?.update(contest)
+            events[contest.id]?.let { event ->
+                event.update(contest)
+
+                scope.periodicallyRefresh(contest, clock) { event.update(contest) }
+            }
         }
     }
 

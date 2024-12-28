@@ -11,10 +11,10 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.datetime.Clock
 import net.slingspot.picks.Greeting
 import net.slingspot.picks.SERVER_PORT
-import net.slingspot.picks.server.di.appModule
 import net.slingspot.picks.server.espn.di.espnModule
 import net.slingspot.picks.util.currentSeason
 import net.slingspot.server.nfl.NflDataSource
+import net.slingspot.server.nfl.di.nflModule
 import org.koin.core.context.startKoin
 
 private lateinit var nflDataSource: NflDataSource
@@ -23,7 +23,7 @@ private lateinit var scope: CoroutineScope
 
 fun main() {
     startKoin {
-        modules(espnModule, appModule)
+        modules(espnModule, nflModule)
     }.apply {
         nflDataSource = koin.get<NflDataSource>()
         clock = koin.get<Clock>()
@@ -31,10 +31,6 @@ fun main() {
     }
 
     runBlocking { nflDataSource.initialize(clock.currentSeason()) }
-
-    // TODO set up alarms to fetch data when a contest begins. While a contest is in progress,
-    //  fetch status & scores once every minute. Starting in the 4th quarter, fetch every 20 seconds
-    //  until the contest is final.
 
     embeddedServer(CIO, port = SERVER_PORT, host = "0.0.0.0", module = Application::module)
         .start(wait = true)
@@ -53,6 +49,18 @@ fun Application.module() {
 
         get("/contests/today") {
             val contests = nflDataSource.today()
+            call.respondText(contests.joinToString(separator = "\n\n"))
+        }
+
+        get("/contests/week") {
+            val contests = nflDataSource.thisWeek()
+            call.respondText(contests.joinToString(separator = "\n\n"))
+        }
+
+        get("/contests/year/{year}/week/{week}") {
+            val year = requireNotNull(call.parameters["year"]?.toInt())
+            val week = requireNotNull(call.parameters["week"]?.toInt())
+            val contests = nflDataSource.week(year, week)
             call.respondText(contests.joinToString(separator = "\n\n"))
         }
     }

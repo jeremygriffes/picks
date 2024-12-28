@@ -16,4 +16,8 @@ kotlin {
 
 dependencies {
     implementation(projects.shared)
+
+    implementation(libs.koin.core)
+    implementation(libs.kotlinx.datetime)
+    implementation(libs.kotlinx.coroutines)
 }
