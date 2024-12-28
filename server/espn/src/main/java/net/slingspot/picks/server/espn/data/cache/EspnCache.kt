@@ -9,4 +9,5 @@ class EspnCache(
     val teamTable = TeamTable(fileSystem)
     val weekTable = WeekTable(fileSystem)
     val eventTable = EventTable(fileSystem)
+    val scoresTable = ScoresTable(fileSystem)
 }

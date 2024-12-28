@@ -48,5 +48,10 @@ fun Application.module() {
             val schedule = nflDataSource.schedule(clock.currentSeason())
             call.respondText(schedule.toString())
         }
+
+        get("/contests/today") {
+            val contests = nflDataSource.today()
+            call.respondText(contests.joinToString(separator = "\n\n"))
+        }
     }
 }

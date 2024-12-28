@@ -43,11 +43,9 @@ data class Season(
  */
 internal fun Season.toSchedule(
     franchises: Set<Franchise>,
-    events: Map<String, List<Event>>
+    events: List<Event>
 ): Schedule {
-    val allEvents = events.toList().fold(emptyList<Event>()) { acc, pair -> acc + pair.second }
-
-    val contests = allEvents.map { event ->
+    val contests = events.map { event ->
         val (away, home) = event.contestants(franchises)
 
         Contest(
@@ -77,16 +75,4 @@ private fun Event.contestants(franchises: Set<Franchise>): Pair<Franchise, Franc
 
     return if (team1isAway) team1Franchise to team2Franchise
     else team2Franchise to team1Franchise
-}
-
-/**
- * ESPN uses timestamps like "2024-09-06T00:40Z" for events, which is valid ISO 8601.
- * However, kotlinx.datetime.Instant.parse does not accept it without seconds.
- *
- * Try to parse the string as it stands. If it fails, include seconds and reparse.
- */
-private fun timeOf(iso8601: String) = try {
-    Instant.parse(iso8601)
-} catch (_: Exception) {
-    Instant.parse(iso8601.dropLast(1) + ":00Z")
 }

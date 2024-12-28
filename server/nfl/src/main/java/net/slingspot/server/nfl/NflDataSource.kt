@@ -12,4 +12,6 @@ interface NflDataSource {
     suspend fun schedule(year: Int): Schedule?
 
     suspend fun update(contest: Contest)
+
+    suspend fun today(): List<Contest>
 }
