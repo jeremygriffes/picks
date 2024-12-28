@@ -5,6 +5,13 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import net.slingspot.picks.model.Progress
 import net.slingspot.picks.model.football.Contest
+import net.slingspot.picks.server.espn.model.Status.Type.Companion.CANCELLED
+import net.slingspot.picks.server.espn.model.Status.Type.Companion.FINAL
+import net.slingspot.picks.server.espn.model.Status.Type.Companion.IN
+import net.slingspot.picks.server.espn.model.Status.Type.Companion.IN_PROGRESS
+import net.slingspot.picks.server.espn.model.Status.Type.Companion.PENDING
+import net.slingspot.picks.server.espn.model.Status.Type.Companion.POST
+import net.slingspot.picks.server.espn.model.Status.Type.Companion.PRE
 import net.slingspot.picks.model.football.Score as PicksScore
 
 /**
@@ -38,16 +45,16 @@ internal fun Contest.updateFrom(scores: CompetitionScores) {
         away = scores.awayScore.value.toInt(),
         home = scores.homeScore.value.toInt()
     )
-    progress = when (scores.status.type.id) {
-        Status.Type.PENDING -> Progress.Pending
-        Status.Type.IN_PROGRESS -> Progress.Running
-        Status.Type.FINAL -> Progress.Final
-        Status.Type.CANCELLED -> Progress.Cancelled
-        Status.Type.UNKNOWN -> run {
-            println("****** Status.Type.id 4 found: ${scores.status}")
-            Progress.Pending
-        }
+    val statusType = scores.status.type
 
+    progress = when {
+        statusType.id == PENDING -> Progress.Pending
+        statusType.id == IN_PROGRESS -> Progress.Running
+        statusType.id == FINAL -> Progress.Final
+        statusType.id == CANCELLED -> Progress.Cancelled
+        statusType.state == PRE -> Progress.Pending
+        statusType.state == IN -> Progress.Running
+        statusType.state == POST -> Progress.Final
         else -> Progress.Pending
     }
 }

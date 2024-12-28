@@ -11,6 +11,9 @@ data class Status(
 ) {
     @Serializable
     data class Type(
+        /**
+         * There are many ids, like "HALFTIME" and so on, which are ignored by this application.
+         */
         val id: String,
         val name: String,
         val state: String,
@@ -23,10 +26,10 @@ data class Status(
             const val PENDING = "1"
             const val IN_PROGRESS = "2"
             const val FINAL = "3"
-
-            // Not sure what id "4" means, haven't seen it yet.
-            const val UNKNOWN = "4"
             const val CANCELLED = "5"
+            const val PRE = "pre"
+            const val IN = "in"
+            const val POST = "post"
         }
     }
 }
