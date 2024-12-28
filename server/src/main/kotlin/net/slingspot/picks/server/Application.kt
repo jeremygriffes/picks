@@ -6,7 +6,6 @@ import io.ktor.server.engine.embeddedServer
 import io.ktor.server.response.respondText
 import io.ktor.server.routing.get
 import io.ktor.server.routing.routing
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.runBlocking
 import kotlinx.datetime.Clock
 import net.slingspot.picks.Greeting
@@ -19,7 +18,6 @@ import org.koin.core.context.startKoin
 
 private lateinit var nflDataSource: NflDataSource
 private lateinit var clock: Clock
-private lateinit var scope: CoroutineScope
 
 fun main() {
     startKoin {
@@ -27,7 +25,6 @@ fun main() {
     }.apply {
         nflDataSource = koin.get<NflDataSource>()
         clock = koin.get<Clock>()
-        scope = koin.get<CoroutineScope>()
     }
 
     runBlocking { nflDataSource.initialize(clock.currentSeason()) }
