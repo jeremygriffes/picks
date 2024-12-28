@@ -2,6 +2,7 @@ package net.slingspot.picks.model.football
 
 import kotlinx.datetime.Instant
 import kotlinx.datetime.format
+import kotlinx.serialization.Serializable
 import net.slingspot.picks.model.Progress
 import net.slingspot.picks.model.Progress.Cancelled
 import net.slingspot.picks.model.Progress.Final
@@ -9,6 +10,7 @@ import net.slingspot.picks.model.Progress.Pending
 import net.slingspot.picks.util.contestDateFormat
 import kotlin.concurrent.Volatile
 
+@Serializable
 data class Contest(
     val id: String = "",
     val home: Franchise = Franchise(),

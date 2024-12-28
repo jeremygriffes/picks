@@ -1,8 +1,10 @@
 package net.slingspot.picks.model.entities
 
+import kotlinx.serialization.Serializable
 import net.slingspot.picks.model.football.Contest
 import net.slingspot.picks.model.football.Franchise
 
+@Serializable
 data class Picks(
     val selectedVictors: Set<Franchise> = emptySet(),
     val overUnder: Int = 0
