@@ -43,6 +43,11 @@ internal fun Contest.updateFrom(scores: CompetitionScores) {
         Status.Type.IN_PROGRESS -> Progress.Running
         Status.Type.FINAL -> Progress.Final
         Status.Type.CANCELLED -> Progress.Cancelled
+        Status.Type.UNKNOWN -> run {
+            println("****** Status.Type.id 4 found: ${scores.status}")
+            Progress.Pending
+        }
+
         else -> Progress.Pending
     }
 }
