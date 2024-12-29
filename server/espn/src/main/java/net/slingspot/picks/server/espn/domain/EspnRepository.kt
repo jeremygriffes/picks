@@ -37,8 +37,8 @@ internal class EspnRepository(
 
     private val franchises = mutableMapOf<Int, Set<Franchise>>()
     private val schedule = mutableMapOf<Int, Schedule>()
-    private val eventsByWeek = mutableMapOf<Instant, List<Event>>()
-    private val allEvents = mutableListOf<Event>()
+    private val weeksOfYear = mutableMapOf<Int, List<WeekContests>>()
+    private val weekDateRanges = mutableListOf<WeekDateRange>()
 
     override suspend fun initialize(year: Int, rebuildCache: Boolean) {
         mutex.withLock {
@@ -50,16 +50,34 @@ internal class EspnRepository(
             val teams = teamsOf(year)
             val season = seasonOf(year)
             val weeks = weeksOf(season.type)
-            eventsByWeek.putAll(weeks.associate { timeOf(it.startDate) to eventsOf(it) })
-            allEvents.clear()
-            allEvents.addAll(
-                eventsByWeek.toList().fold(emptyList()) { acc, pair -> acc + pair.second }
-            )
+            val eventsByWeek: Map<Int, List<Event>> = weeks.associate { it.number to eventsOf(it) }
+            val allEvents = eventsByWeek.values.flatten()
             val franchisesThisSeason = teams.map { it.toFranchise() }.toSet()
             val scheduleThisSeason = season.toSchedule(franchisesThisSeason, allEvents)
 
             franchises[year] = franchisesThisSeason
             schedule[year] = scheduleThisSeason
+            weekDateRanges.addAll(
+                weeks.mapIndexed { index, week ->
+                    WeekDateRange(
+                        index = index,
+                        startTime = timeOf(week.startDate),
+                        endTime = timeOf(week.endDate)
+                    )
+                }
+            )
+
+            weeksOfYear[year] = eventsByWeek.map { entry ->
+                WeekContests(
+                    index = entry.key,
+                    eventContests = entry.value.map { event ->
+                        EventContest(
+                            event = event,
+                            contest = scheduleThisSeason.contests.first { it.id == event.id }
+                        )
+                    }
+                )
+            }
 
             allEvents.update(scheduleThisSeason.contests)
         }
@@ -71,12 +89,6 @@ internal class EspnRepository(
 
     override suspend fun schedule(year: Int) = mutex.withLock {
         schedule[year]
-    }
-
-    override suspend fun update(contest: Contest) {
-        mutex.withLock {
-            allEvents.firstOrNull { it.id == contest.id }?.update(contest)
-        }
     }
 
     override suspend fun today(): List<Contest> {
@@ -93,20 +105,17 @@ internal class EspnRepository(
     override suspend fun thisWeek(): List<Contest> {
         return mutex.withLock {
             val today = clock.now()
-            val week = eventsByWeek.keys.minBy { it < today }
-            val events = requireNotNull(eventsByWeek[week])
+            val weekIndex = weekDateRanges.first { today in it }.index
+            val week = weeksOfYear[clock.currentSeason()]?.get(weekIndex)
 
-            schedule[clock.currentSeason()]?.contests
-                ?.filter { contest -> events.any { it.id == contest.id } }
-                ?: emptyList()
+            week?.eventContests?.map { it.contest } ?: emptyList()
         }
     }
 
-    override suspend fun week(year: Int, week: Int): List<Contest> {
+    override suspend fun week(year: Int, weekNumber: Int): List<Contest> {
         return mutex.withLock {
-            // Need to improve the data model so that it's easier to get events by a week number.
-            // May want to introduce a Week class with an index and Contest set.
-            emptyList()
+            val week = weeksOfYear[year]?.get(weekNumber - 1)
+            week?.eventContests?.map { it.contest } ?: emptyList()
         }
     }
 
@@ -171,4 +180,22 @@ internal class EspnRepository(
             cache.scoresTable.upsert(competitionScore)
         }
     }
+}
+
+private data class EventContest(
+    val event: Event,
+    val contest: Contest
+)
+
+private data class WeekContests(
+    val index: Int,
+    val eventContests: List<EventContest>
+)
+
+data class WeekDateRange(
+    val index: Int,
+    val startTime: Instant,
+    val endTime: Instant
+) {
+    operator fun contains(time: Instant) = time in startTime..endTime
 }

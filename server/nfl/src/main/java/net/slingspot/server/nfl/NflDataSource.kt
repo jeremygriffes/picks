@@ -11,11 +11,9 @@ interface NflDataSource {
 
     suspend fun schedule(year: Int): Schedule?
 
-    suspend fun update(contest: Contest)
-
     suspend fun today(): List<Contest>
 
     suspend fun thisWeek(): List<Contest>
 
-    suspend fun week(year: Int, week: Int): List<Contest>
+    suspend fun week(year: Int, weekNumber: Int): List<Contest>
 }
