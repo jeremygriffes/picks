@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "106029184615",
+    "project_id": "slingspot-picks",
+    "storage_bucket": "slingspot-picks.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106029184615:android:79dfa6a833089cdf5a86c2",
+        "android_client_info": {
+          "package_name": "net.slingspot.picks"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaVhxPkxgFoFxv7fqNSQM4zqF525BQ2mo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
