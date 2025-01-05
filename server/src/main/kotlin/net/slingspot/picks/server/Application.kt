@@ -42,7 +42,6 @@ fun main() {
 fun Application.module() {
     install(ContentNegotiation) {
         json(Json {
-            prettyPrint = true
             isLenient = true
         })
     }
