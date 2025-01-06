@@ -1,4 +1,4 @@
-package net.slingspot.server.nfl
+package net.slingspot.picks.server.data
 
 import net.slingspot.picks.model.football.Contest
 import net.slingspot.picks.model.football.Franchise

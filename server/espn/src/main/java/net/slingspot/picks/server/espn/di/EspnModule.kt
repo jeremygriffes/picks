@@ -12,7 +12,7 @@ import kotlinx.serialization.json.Json
 import net.slingspot.picks.server.espn.data.EspnApi
 import net.slingspot.picks.server.espn.data.cache.EspnCache
 import net.slingspot.picks.server.espn.domain.EspnRepository
-import net.slingspot.server.nfl.NflDataSource
+import net.slingspot.picks.server.data.NflDataSource
 import okio.FileSystem
 import org.koin.dsl.module
 

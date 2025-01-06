@@ -16,14 +16,13 @@ kotlin {
 }
 
 dependencies {
-    implementation(projects.server.data)
-    implementation(projects.shared)
+    implementation(project(":server:data"))
+    implementation(project(":shared"))
 
+    implementation(project.dependencies.platform(libs.koin.bom))
+    implementation(libs.firebase.admin)
     implementation(libs.koin.core)
-    implementation(libs.ktor.client.cio)
-    implementation(libs.ktor.client.core)
-    implementation(libs.ktor.client.content.negotiation)
-    implementation(libs.ktor.client.logging)
-    implementation(libs.ktor.serialization.kotlinx.json)
-    implementation(libs.okio)
+    implementation(libs.kotlinx.datetime)
+
+    testImplementation(libs.kotlin.test.junit)
 }

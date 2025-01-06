@@ -15,11 +15,14 @@ application {
 }
 
 dependencies {
+    implementation(projects.server.data)
     implementation(projects.server.espn)
-    implementation(projects.server.nfl)
+    implementation(projects.server.firebase)
     implementation(projects.shared)
 
     implementation(project.dependencies.platform(libs.koin.bom))
+    implementation(libs.firebase.admin)
+    implementation(libs.firebase.firestore)
     implementation(libs.koin.core)
     implementation(libs.kotlinx.datetime)
     implementation(libs.ktor.client.core)

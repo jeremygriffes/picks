@@ -16,21 +16,25 @@ import kotlinx.datetime.Clock
 import kotlinx.serialization.json.Json
 import net.slingspot.picks.Greeting
 import net.slingspot.picks.SERVER_PORT
+import net.slingspot.picks.server.data.DataAccess
+import net.slingspot.picks.server.data.NflDataSource
+import net.slingspot.picks.server.data.di.dataModule
 import net.slingspot.picks.server.espn.di.espnModule
+import net.slingspot.picks.server.firebase.di.firebaseModule
 import net.slingspot.picks.util.currentSeason
-import net.slingspot.server.nfl.NflDataSource
-import net.slingspot.server.nfl.di.nflModule
 import org.koin.core.context.startKoin
 
 private lateinit var nflDataSource: NflDataSource
 private lateinit var clock: Clock
+private lateinit var dataAccess: DataAccess
 
 fun main() {
     startKoin {
-        modules(espnModule, nflModule)
+        modules(espnModule, dataModule, firebaseModule)
     }.apply {
         nflDataSource = koin.get<NflDataSource>()
         clock = koin.get<Clock>()
+        dataAccess = koin.get<DataAccess>()
     }
 
     runBlocking { nflDataSource.initialize(clock.currentSeason()) }
@@ -77,6 +81,11 @@ fun Application.module() {
             val week = requireNotNull(call.parameters["week"]?.toInt())
             val contests = nflDataSource.week(year, week)
             call.respond(contests)
+        }
+
+        get("/users") {
+            val users = dataAccess.users()
+            call.respond(users)
         }
     }
 }

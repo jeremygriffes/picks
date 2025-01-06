@@ -25,7 +25,7 @@ import net.slingspot.picks.server.espn.model.toFranchise
 import net.slingspot.picks.server.espn.model.toSchedule
 import net.slingspot.picks.server.espn.model.updateFrom
 import net.slingspot.picks.util.currentSeason
-import net.slingspot.server.nfl.NflDataSource
+import net.slingspot.picks.server.data.NflDataSource
 
 internal class EspnRepository(
     private val cache: EspnCache,
