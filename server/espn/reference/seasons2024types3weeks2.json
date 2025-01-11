@@ -1,0 +1,13 @@
+{
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/types/3/weeks/2?lang=en&region=us",
+  "number": 2,
+  "startDate": "2025-01-17T08:00Z",
+  "endDate": "2025-01-24T07:59Z",
+  "text": "Divisional Round",
+  "rankings": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/types/3/weeks/2/rankings?lang=en&region=us"
+  },
+  "events": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/types/3/weeks/2/events?lang=en&region=us"
+  }
+}

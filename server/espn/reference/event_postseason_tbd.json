@@ -1,0 +1,283 @@
+{
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671889?lang=en&region=us",
+  "id": "401671889",
+  "uid": "s:20~l:28~e:401671889",
+  "date": "2025-02-09T05:00Z",
+  "name": "TBD TBD at TBD TBD",
+  "shortName": "TBD VS TBD",
+  "season": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024?lang=en&region=us"
+  },
+  "seasonType": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/types/3?lang=en&region=us"
+  },
+  "week": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/types/3/weeks/5?lang=en&region=us"
+  },
+  "timeValid": false,
+  "competitions": [
+    {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671889/competitions/401671889?lang=en&region=us",
+      "id": "401671889",
+      "guid": "242e3f96-382c-3e93-99fa-a415be189e75",
+      "uid": "s:20~l:28~e:401671889~c:401671889",
+      "date": "2025-02-09T05:00Z",
+      "attendance": 0,
+      "type": {
+        "id": "1",
+        "text": "Standard",
+        "abbreviation": "STD",
+        "slug": "standard",
+        "type": "standard"
+      },
+      "timeValid": false,
+      "dateValid": true,
+      "neutralSite": true,
+      "divisionCompetition": false,
+      "conferenceCompetition": false,
+      "previewAvailable": false,
+      "recapAvailable": false,
+      "boxscoreAvailable": false,
+      "lineupAvailable": false,
+      "gamecastAvailable": false,
+      "playByPlayAvailable": false,
+      "conversationAvailable": true,
+      "commentaryAvailable": false,
+      "pickcenterAvailable": false,
+      "summaryAvailable": true,
+      "liveAvailable": false,
+      "ticketsAvailable": true,
+      "shotChartAvailable": false,
+      "timeoutsAvailable": false,
+      "possessionArrowAvailable": false,
+      "onWatchESPN": false,
+      "recent": false,
+      "bracketAvailable": false,
+      "wallclockAvailable": false,
+      "gameSource": {
+        "id": "1",
+        "description": "basic/manual",
+        "state": "basic"
+      },
+      "boxscoreSource": {
+        "id": "0",
+        "description": "none",
+        "state": "none"
+      },
+      "playByPlaySource": {
+        "id": "0",
+        "description": "none",
+        "state": "none"
+      },
+      "linescoreSource": {
+        "id": "1",
+        "description": "basic/manual",
+        "state": "basic"
+      },
+      "statsSource": {
+        "id": "0",
+        "description": "none",
+        "state": "none"
+      },
+      "venue": {
+        "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/venues/3493?lang=en&region=us",
+        "id": "3493",
+        "fullName": "Caesars Superdome",
+        "address": {
+          "city": "New Orleans",
+          "state": "LA",
+          "zipCode": "70112"
+        },
+        "grass": false,
+        "indoor": true,
+        "images": [
+          {
+            "href": "https://a.espncdn.com/i/venues/nfl/day/3493.jpg",
+            "width": 2000,
+            "height": 1125,
+            "alt": "",
+            "rel": [
+              "full",
+              "day"
+            ]
+          },
+          {
+            "href": "https://a.espncdn.com/i/venues/nfl/day/interior/3493.jpg",
+            "width": 2000,
+            "height": 1125,
+            "alt": "",
+            "rel": [
+              "full",
+              "day",
+              "interior"
+            ]
+          }
+        ]
+      },
+      "competitors": [
+        {
+          "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671889/competitions/401671889/competitors/-1?lang=en&region=us",
+          "id": "-1",
+          "uid": "s:20~l:28~t:-1",
+          "type": "team",
+          "order": 0,
+          "homeAway": "home",
+          "team": {
+            "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/teams/-1?lang=en&region=us"
+          },
+          "score": {
+            "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671889/competitions/401671889/competitors/-1/score?lang=en&region=us"
+          },
+          "record": {
+            "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/types/2/teams/-1/record?lang=en&region=us"
+          }
+        },
+        {
+          "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671889/competitions/401671889/competitors/-2?lang=en&region=us",
+          "id": "-2",
+          "uid": "s:20~l:28~t:-2",
+          "type": "team",
+          "order": 1,
+          "homeAway": "away",
+          "team": {
+            "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/teams/-2?lang=en&region=us"
+          },
+          "score": {
+            "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671889/competitions/401671889/competitors/-2/score?lang=en&region=us"
+          },
+          "record": {
+            "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/types/2/teams/-2/record?lang=en&region=us"
+          }
+        }
+      ],
+      "notes": [
+        {
+          "type": "event",
+          "headline": "Super Bowl LIX"
+        }
+      ],
+      "situation": {
+        "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671889/competitions/401671889/situation?lang=en&region=us"
+      },
+      "status": {
+        "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671889/competitions/401671889/status?lang=en&region=us"
+      },
+      "broadcasts": {
+        "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671889/competitions/401671889/broadcasts?lang=en&region=us"
+      },
+      "tickets": {
+        "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671889/competitions/401671889/tickets?lang=en&region=us"
+      },
+      "links": [
+        {
+          "language": "en-US",
+          "rel": [
+            "summary",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/game/_/gameId/401671889/tbd-tbd",
+          "text": "Gamecast",
+          "shortText": "Summary",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "summary",
+            "sportscenter",
+            "app",
+            "event"
+          ],
+          "href": "sportscenter://x-callback-url/showGame?sportName=football&leagueAbbrev=nfl&gameId=401671889",
+          "text": "Gamecast",
+          "shortText": "Summary",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "now",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/game/_/gameId/401671889",
+          "text": "Now",
+          "shortText": "Now",
+          "isExternal": false,
+          "isPremium": false
+        }
+      ],
+      "format": {
+        "regulation": {
+          "periods": 4,
+          "displayName": "Quarter",
+          "slug": "quarter",
+          "clock": 900
+        },
+        "overtime": {
+          "periods": 0,
+          "displayName": "sudden-death",
+          "slug": "sudden-death",
+          "clock": 900
+        }
+      },
+      "drives": {
+        "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671889/competitions/401671889/drives?lang=en&region=us"
+      },
+      "hasDefensiveStats": false
+    }
+  ],
+  "links": [
+    {
+      "language": "en-US",
+      "rel": [
+        "summary",
+        "desktop",
+        "event"
+      ],
+      "href": "https://www.espn.com/nfl/game/_/gameId/401671889/tbd-tbd",
+      "text": "Gamecast",
+      "shortText": "Summary",
+      "isExternal": false,
+      "isPremium": false
+    },
+    {
+      "language": "en-US",
+      "rel": [
+        "summary",
+        "sportscenter",
+        "app",
+        "event"
+      ],
+      "href": "sportscenter://x-callback-url/showGame?sportName=football&leagueAbbrev=nfl&gameId=401671889",
+      "text": "Gamecast",
+      "shortText": "Summary",
+      "isExternal": false,
+      "isPremium": false
+    },
+    {
+      "language": "en-US",
+      "rel": [
+        "now",
+        "desktop",
+        "event"
+      ],
+      "href": "https://www.espn.com/nfl/game/_/gameId/401671889",
+      "text": "Now",
+      "shortText": "Now",
+      "isExternal": false,
+      "isPremium": false
+    }
+  ],
+  "venues": [
+    {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/venues/3493?lang=en&region=us"
+    }
+  ],
+  "league": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl?lang=en&region=us"
+  }
+}

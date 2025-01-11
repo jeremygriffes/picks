@@ -1,0 +1,16 @@
+{
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/types/3/weeks/1?lang=en&region=us",
+  "number": 1,
+  "startDate": "2025-01-08T08:00Z",
+  "endDate": "2025-01-17T07:59Z",
+  "text": "Wild Card",
+  "rankings": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/types/3/weeks/1/rankings?lang=en&region=us"
+  },
+  "events": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/types/3/weeks/1/events?lang=en&region=us"
+  },
+  "talentpicks": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/types/3/weeks/1/talentpicks?lang=en&region=us"
+  }
+}

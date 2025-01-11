@@ -10,8 +10,9 @@ version = "1.0.0"
 
 application {
     mainClass.set("net.slingspot.picks.server.ApplicationKt")
-    applicationDefaultJvmArgs =
-        listOf("-Dio.ktor.development=${extra["io.ktor.development"] ?: "false"}")
+    applicationDefaultJvmArgs = listOf(
+        "-Dio.ktor.development=${extra["io.ktor.development"] ?: "false"}"
+    )
 }
 
 dependencies {
@@ -21,7 +22,7 @@ dependencies {
     implementation(projects.shared)
 
     implementation(project.dependencies.platform(libs.koin.bom))
-    implementation(libs.firebase.admin)
+    implementation(project.dependencies.platform(libs.firebase.bom))
     implementation(libs.firebase.firestore)
     implementation(libs.koin.core)
     implementation(libs.kotlinx.datetime)

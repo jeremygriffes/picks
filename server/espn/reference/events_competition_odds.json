@@ -1,0 +1,634 @@
+{
+  "count": 2,
+  "pageIndex": 1,
+  "pageSize": 25,
+  "pageCount": 1,
+  "items": [
+    {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/odds/58?lang=en&region=us",
+      "provider": {
+        "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/providers/58?lang=en&region=us",
+        "id": "58",
+        "name": "ESPN BET",
+        "priority": 1
+      },
+      "details": "LAC -2.5",
+      "overUnder": 41.5,
+      "spread": 2.5,
+      "overOdds": -115,
+      "underOdds": -105,
+      "awayTeamOdds": {
+        "favorite": true,
+        "underdog": false,
+        "moneyLine": -162,
+        "spreadOdds": -130,
+        "open": {
+          "favorite": true,
+          "pointSpread": {
+            "alternateDisplayValue": "-2.5",
+            "american": "-2.5"
+          },
+          "spread": {
+            "value": 1.833,
+            "displayValue": "5/6",
+            "alternateDisplayValue": "-120",
+            "decimal": 1.833,
+            "fraction": "5/6",
+            "american": "-120"
+          },
+          "moneyLine": {
+            "value": 1.667,
+            "displayValue": "2/3",
+            "alternateDisplayValue": "-150",
+            "decimal": 1.667,
+            "fraction": "2/3",
+            "american": "-150"
+          }
+        },
+        "close": {
+          "pointSpread": {
+            "alternateDisplayValue": "-2.5",
+            "american": "-2.5"
+          },
+          "spread": {
+            "value": 1.769,
+            "displayValue": "10/13",
+            "alternateDisplayValue": "-130",
+            "decimal": 1.769,
+            "fraction": "10/13",
+            "american": "-130"
+          },
+          "moneyLine": {
+            "value": 1.617,
+            "displayValue": "50/81",
+            "alternateDisplayValue": "-162",
+            "decimal": 1.617,
+            "fraction": "50/81",
+            "american": "-162"
+          }
+        },
+        "current": {
+          "pointSpread": {
+            "alternateDisplayValue": "-2.5",
+            "american": "-2.5"
+          },
+          "spread": {
+            "value": 1.769,
+            "displayValue": "10/13",
+            "alternateDisplayValue": "-130",
+            "decimal": 1.769,
+            "fraction": "10/13",
+            "american": "-130",
+            "outcome": {
+              "type": "pending"
+            }
+          },
+          "moneyLine": {
+            "value": 1.617,
+            "displayValue": "50/81",
+            "alternateDisplayValue": "-162",
+            "decimal": 1.617,
+            "fraction": "50/81",
+            "american": "-162",
+            "outcome": {
+              "type": "pending"
+            }
+          }
+        },
+        "team": {
+          "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/teams/24?lang=en&region=us"
+        }
+      },
+      "homeTeamOdds": {
+        "favorite": false,
+        "underdog": true,
+        "moneyLine": 138,
+        "spreadOdds": 105,
+        "open": {
+          "favorite": false,
+          "pointSpread": {
+            "value": 2,
+            "displayValue": "1/1",
+            "alternateDisplayValue": "+2.5",
+            "decimal": 2,
+            "fraction": "1/1",
+            "american": "+2.5"
+          },
+          "spread": {
+            "value": 2,
+            "displayValue": "1/1",
+            "alternateDisplayValue": "EVEN",
+            "decimal": 2,
+            "fraction": "1/1",
+            "american": "EVEN"
+          },
+          "moneyLine": {
+            "value": 2.3,
+            "displayValue": "13/10",
+            "alternateDisplayValue": "+130",
+            "decimal": 2.3,
+            "fraction": "13/10",
+            "american": "+130"
+          }
+        },
+        "close": {
+          "pointSpread": {
+            "alternateDisplayValue": "+2.5",
+            "american": "+2.5"
+          },
+          "spread": {
+            "value": 2.05,
+            "displayValue": "21/20",
+            "alternateDisplayValue": "+105",
+            "decimal": 2.05,
+            "fraction": "21/20",
+            "american": "+105"
+          },
+          "moneyLine": {
+            "value": 2.38,
+            "displayValue": "69/50",
+            "alternateDisplayValue": "+138",
+            "decimal": 2.38,
+            "fraction": "69/50",
+            "american": "+138"
+          }
+        },
+        "current": {
+          "pointSpread": {
+            "alternateDisplayValue": "+2.5",
+            "american": "+2.5"
+          },
+          "spread": {
+            "value": 2.05,
+            "displayValue": "21/20",
+            "alternateDisplayValue": "+105",
+            "decimal": 2.05,
+            "fraction": "21/20",
+            "american": "+105",
+            "outcome": {
+              "type": "pending"
+            }
+          },
+          "moneyLine": {
+            "value": 2.38,
+            "displayValue": "69/50",
+            "alternateDisplayValue": "+138",
+            "decimal": 2.38,
+            "fraction": "69/50",
+            "american": "+138",
+            "outcome": {
+              "type": "pending"
+            }
+          }
+        },
+        "team": {
+          "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/teams/34?lang=en&region=us"
+        }
+      },
+      "links": [
+        {
+          "language": "en-US",
+          "rel": [
+            "home",
+            "desktop",
+            "bets",
+            "espn-bet"
+          ],
+          "href": "https://espnbet.app.link?%243p=a_espn&clr=espnbettingintegration&$canonical_url=/sport/football/organization/united-states/competition/nfl/event/94ecc644-444b-4699-9259-2de69ad739bd&market_selection_id[0]=dfbaafc9-1c89-45f1-a18b-70b5ad782923&odds_numerator[0]=119&odds_denominator[0]=50",
+          "text": "Home Bet",
+          "shortText": "Home Bet",
+          "isExternal": true,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "away",
+            "desktop",
+            "bets",
+            "espn-bet"
+          ],
+          "href": "https://espnbet.app.link?%243p=a_espn&clr=espnbettingintegration&$canonical_url=/sport/football/organization/united-states/competition/nfl/event/94ecc644-444b-4699-9259-2de69ad739bd&market_selection_id[0]=2db7299b-3f05-4f7a-b826-c8021dcc09b4&odds_numerator[0]=131&odds_denominator[0]=81",
+          "text": "Away Bet",
+          "shortText": "Away Bet",
+          "isExternal": true,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "homeSpread",
+            "desktop",
+            "bets"
+          ],
+          "href": "https://espnbet.app.link?%243p=a_espn&clr=espnbettingintegration&$canonical_url=/sport/football/organization/united-states/competition/nfl/event/94ecc644-444b-4699-9259-2de69ad739bd&market_selection_id[0]=9465bce4-9542-4309-849b-808aaae93e12&odds_numerator[0]=41&odds_denominator[0]=20",
+          "text": "Home Point Spread",
+          "shortText": "Home Point Spread",
+          "isExternal": true,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "awaySpread",
+            "desktop",
+            "bets"
+          ],
+          "href": "https://espnbet.app.link?%243p=a_espn&clr=espnbettingintegration&$canonical_url=/sport/football/organization/united-states/competition/nfl/event/94ecc644-444b-4699-9259-2de69ad739bd&market_selection_id[0]=94031586-1615-459d-9313-730acc9eabb8&odds_numerator[0]=23&odds_denominator[0]=13",
+          "text": "Away Point Spread",
+          "shortText": "Away Point Spread",
+          "isExternal": true,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "over",
+            "desktop",
+            "bets"
+          ],
+          "href": "https://espnbet.app.link?%243p=a_espn&clr=espnbettingintegration&$canonical_url=/sport/football/organization/united-states/competition/nfl/event/94ecc644-444b-4699-9259-2de69ad739bd&market_selection_id[0]=0e38e428-6c55-4424-bdb0-8f4c8e09280e&odds_numerator[0]=43&odds_denominator[0]=23",
+          "text": "Over Odds",
+          "shortText": "Over Odds",
+          "isExternal": true,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "under",
+            "desktop",
+            "bets"
+          ],
+          "href": "https://espnbet.app.link?%243p=a_espn&clr=espnbettingintegration&$canonical_url=/sport/football/organization/united-states/competition/nfl/event/94ecc644-444b-4699-9259-2de69ad739bd&market_selection_id[0]=1fa1c1f7-142a-4ed9-aa43-31f5e90a43e0&odds_numerator[0]=41&odds_denominator[0]=21",
+          "text": "Under Odds",
+          "shortText": "Under Odds",
+          "isExternal": true,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "game",
+            "desktop",
+            "bets"
+          ],
+          "href": "https://espnbet.app.link?%243p=a_espn&clr=espnbettingintegration&$canonical_url=/sport/football/organization/united-states/competition/nfl/event/94ecc644-444b-4699-9259-2de69ad739bd",
+          "text": "Game",
+          "shortText": "Game",
+          "isExternal": true,
+          "isPremium": false
+        }
+      ],
+      "moneylineWinner": false,
+      "spreadWinner": false,
+      "open": {
+        "over": {
+          "value": 1.909,
+          "displayValue": "10/11",
+          "alternateDisplayValue": "-110",
+          "decimal": 1.909,
+          "fraction": "10/11",
+          "american": "-110"
+        },
+        "under": {
+          "value": 1.909,
+          "displayValue": "10/11",
+          "alternateDisplayValue": "-110",
+          "decimal": 1.909,
+          "fraction": "10/11",
+          "american": "-110"
+        },
+        "total": {
+          "value": 1.909,
+          "displayValue": "10/11",
+          "alternateDisplayValue": "44.5",
+          "decimal": 1.909,
+          "fraction": "10/11",
+          "american": "44.5"
+        }
+      },
+      "close": {
+        "over": {
+          "value": 1.87,
+          "displayValue": "20/23",
+          "alternateDisplayValue": "-115",
+          "decimal": 1.87,
+          "fraction": "20/23",
+          "american": "-115"
+        },
+        "under": {
+          "value": 1.952,
+          "displayValue": "20/21",
+          "alternateDisplayValue": "-105",
+          "decimal": 1.952,
+          "fraction": "20/21",
+          "american": "-105"
+        },
+        "total": {
+          "alternateDisplayValue": "41.5",
+          "american": "41.5"
+        }
+      },
+      "current": {
+        "over": {
+          "value": 1.87,
+          "displayValue": "20/23",
+          "alternateDisplayValue": "-115",
+          "decimal": 1.87,
+          "fraction": "20/23",
+          "american": "-115",
+          "outcome": {
+            "type": "pending"
+          }
+        },
+        "under": {
+          "value": 1.952,
+          "displayValue": "20/21",
+          "alternateDisplayValue": "-105",
+          "decimal": 1.952,
+          "fraction": "20/21",
+          "american": "-105",
+          "outcome": {
+            "type": "pending"
+          }
+        },
+        "total": {
+          "alternateDisplayValue": "41.5",
+          "american": "41.5"
+        }
+      }
+    },
+    {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/odds/59?lang=en&region=us",
+      "provider": {
+        "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/providers/59?lang=en&region=us",
+        "id": "59",
+        "name": "ESPN Bet - Live Odds",
+        "priority": 0
+      },
+      "details": "HOU -2.5",
+      "overUnder": 35.5,
+      "spread": -2.5,
+      "overOdds": -120,
+      "underOdds": -110,
+      "awayTeamOdds": {
+        "favorite": false,
+        "underdog": true,
+        "moneyLine": 110,
+        "spreadOdds": -110,
+        "open": {
+          "favorite": true,
+          "pointSpread": {
+            "alternateDisplayValue": "-2.5",
+            "american": "-2.5"
+          },
+          "spread": {
+            "value": 1.833,
+            "displayValue": "5/6",
+            "alternateDisplayValue": "-120",
+            "decimal": 1.833,
+            "fraction": "5/6",
+            "american": "-120"
+          },
+          "moneyLine": {
+            "value": 1.667,
+            "displayValue": "2/3",
+            "alternateDisplayValue": "-150",
+            "decimal": 1.667,
+            "fraction": "2/3",
+            "american": "-150"
+          }
+        },
+        "current": {
+          "pointSpread": {
+            "alternateDisplayValue": "+2.5",
+            "american": "+2.5"
+          },
+          "spread": {
+            "value": 1.909,
+            "displayValue": "10/11",
+            "alternateDisplayValue": "-110",
+            "decimal": 1.909,
+            "fraction": "10/11",
+            "american": "-110"
+          },
+          "moneyLine": {
+            "value": 2.1,
+            "displayValue": "11/10",
+            "alternateDisplayValue": "+110",
+            "decimal": 2.1,
+            "fraction": "11/10",
+            "american": "+110"
+          }
+        },
+        "team": {
+          "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/teams/24?lang=en&region=us"
+        }
+      },
+      "homeTeamOdds": {
+        "favorite": true,
+        "underdog": false,
+        "moneyLine": -140,
+        "spreadOdds": -120,
+        "open": {
+          "favorite": false,
+          "pointSpread": {
+            "value": 2,
+            "displayValue": "1/1",
+            "alternateDisplayValue": "+2.5",
+            "decimal": 2,
+            "fraction": "1/1",
+            "american": "+2.5"
+          },
+          "spread": {
+            "value": 2,
+            "displayValue": "1/1",
+            "alternateDisplayValue": "EVEN",
+            "decimal": 2,
+            "fraction": "1/1",
+            "american": "EVEN"
+          },
+          "moneyLine": {
+            "value": 2.3,
+            "displayValue": "13/10",
+            "alternateDisplayValue": "+130",
+            "decimal": 2.3,
+            "fraction": "13/10",
+            "american": "+130"
+          }
+        },
+        "current": {
+          "pointSpread": {
+            "alternateDisplayValue": "-2.5",
+            "american": "-2.5"
+          },
+          "spread": {
+            "value": 1.833,
+            "displayValue": "5/6",
+            "alternateDisplayValue": "-120",
+            "decimal": 1.833,
+            "fraction": "5/6",
+            "american": "-120"
+          },
+          "moneyLine": {
+            "value": 1.714,
+            "displayValue": "5/7",
+            "alternateDisplayValue": "-140",
+            "decimal": 1.714,
+            "fraction": "5/7",
+            "american": "-140"
+          }
+        },
+        "team": {
+          "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/teams/34?lang=en&region=us"
+        }
+      },
+      "links": [
+        {
+          "language": "en-US",
+          "rel": [
+            "home",
+            "desktop",
+            "bets",
+            "espn-bet---live-odds"
+          ],
+          "href": "https://espnbet.app.link?%243p=a_espn&clr=espnbettingintegration&$canonical_url=/sport/football/organization/united-states/competition/nfl/event/94ecc644-444b-4699-9259-2de69ad739bd&market_selection_id[0]=dfbaafc9-1c89-45f1-a18b-70b5ad782923&odds_numerator[0]=12&odds_denominator[0]=7",
+          "text": "Home Bet",
+          "shortText": "Home Bet",
+          "isExternal": true,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "away",
+            "desktop",
+            "bets",
+            "espn-bet---live-odds"
+          ],
+          "href": "https://espnbet.app.link?%243p=a_espn&clr=espnbettingintegration&$canonical_url=/sport/football/organization/united-states/competition/nfl/event/94ecc644-444b-4699-9259-2de69ad739bd&market_selection_id[0]=2db7299b-3f05-4f7a-b826-c8021dcc09b4&odds_numerator[0]=21&odds_denominator[0]=10",
+          "text": "Away Bet",
+          "shortText": "Away Bet",
+          "isExternal": true,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "homeSpread",
+            "desktop",
+            "bets"
+          ],
+          "href": "https://espnbet.app.link?%243p=a_espn&clr=espnbettingintegration&$canonical_url=/sport/football/organization/united-states/competition/nfl/event/94ecc644-444b-4699-9259-2de69ad739bd&market_selection_id[0]=1da2f94d-c3a4-444d-b89d-de634ba0bf10&odds_numerator[0]=11&odds_denominator[0]=6",
+          "text": "Home Point Spread",
+          "shortText": "Home Point Spread",
+          "isExternal": true,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "awaySpread",
+            "desktop",
+            "bets"
+          ],
+          "href": "https://espnbet.app.link?%243p=a_espn&clr=espnbettingintegration&$canonical_url=/sport/football/organization/united-states/competition/nfl/event/94ecc644-444b-4699-9259-2de69ad739bd&market_selection_id[0]=4c3f0ed8-02c1-436f-a0eb-d340af28ba80&odds_numerator[0]=21&odds_denominator[0]=11",
+          "text": "Away Point Spread",
+          "shortText": "Away Point Spread",
+          "isExternal": true,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "over",
+            "desktop",
+            "bets"
+          ],
+          "href": "https://espnbet.app.link?%243p=a_espn&clr=espnbettingintegration&$canonical_url=/sport/football/organization/united-states/competition/nfl/event/94ecc644-444b-4699-9259-2de69ad739bd&market_selection_id[0]=7de93a4f-057d-4974-a9aa-9320578041e4&odds_numerator[0]=11&odds_denominator[0]=6",
+          "text": "Over Odds",
+          "shortText": "Over Odds",
+          "isExternal": true,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "under",
+            "desktop",
+            "bets"
+          ],
+          "href": "https://espnbet.app.link?%243p=a_espn&clr=espnbettingintegration&$canonical_url=/sport/football/organization/united-states/competition/nfl/event/94ecc644-444b-4699-9259-2de69ad739bd&market_selection_id[0]=dc9c5d90-80b0-4a1a-aebf-601c950e4d0a&odds_numerator[0]=21&odds_denominator[0]=11",
+          "text": "Under Odds",
+          "shortText": "Under Odds",
+          "isExternal": true,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "game",
+            "desktop",
+            "bets"
+          ],
+          "href": "https://espnbet.app.link?%243p=a_espn&clr=espnbettingintegration&$canonical_url=/sport/football/organization/united-states/competition/nfl/event/94ecc644-444b-4699-9259-2de69ad739bd",
+          "text": "Game",
+          "shortText": "Game",
+          "isExternal": true,
+          "isPremium": false
+        }
+      ],
+      "moneylineWinner": false,
+      "spreadWinner": false,
+      "open": {
+        "over": {
+          "value": 1.909,
+          "displayValue": "10/11",
+          "alternateDisplayValue": "-110",
+          "decimal": 1.909,
+          "fraction": "10/11",
+          "american": "-110"
+        },
+        "under": {
+          "value": 1.909,
+          "displayValue": "10/11",
+          "alternateDisplayValue": "-110",
+          "decimal": 1.909,
+          "fraction": "10/11",
+          "american": "-110"
+        },
+        "total": {
+          "value": 1.909,
+          "displayValue": "10/11",
+          "alternateDisplayValue": "44.5",
+          "decimal": 1.909,
+          "fraction": "10/11",
+          "american": "44.5"
+        }
+      },
+      "current": {
+        "over": {
+          "value": 1.833,
+          "displayValue": "5/6",
+          "alternateDisplayValue": "-120",
+          "decimal": 1.833,
+          "fraction": "5/6",
+          "american": "-120"
+        },
+        "under": {
+          "value": 1.909,
+          "displayValue": "10/11",
+          "alternateDisplayValue": "-110",
+          "decimal": 1.909,
+          "fraction": "10/11",
+          "american": "-110"
+        },
+        "total": {
+          "alternateDisplayValue": "35.5",
+          "american": "35.5"
+        }
+      }
+    }
+  ]
+}

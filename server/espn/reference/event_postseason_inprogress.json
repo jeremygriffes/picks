@@ -1,0 +1,592 @@
+{
+  "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878?lang=en&region=us",
+  "id": "401671878",
+  "uid": "s:20~l:28~e:401671878",
+  "date": "2025-01-11T21:30Z",
+  "name": "Los Angeles Chargers at Houston Texans",
+  "shortName": "LAC @ HOU",
+  "season": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024?lang=en&region=us"
+  },
+  "seasonType": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/types/3?lang=en&region=us"
+  },
+  "week": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/types/3/weeks/1?lang=en&region=us"
+  },
+  "timeValid": true,
+  "competitions": [
+    {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878?lang=en&region=us",
+      "id": "401671878",
+      "guid": "ab55e1f1-e151-31a8-97ad-1ba21885f321",
+      "uid": "s:20~l:28~e:401671878~c:401671878",
+      "date": "2025-01-11T21:30Z",
+      "attendance": 0,
+      "type": {
+        "id": "1",
+        "text": "Standard",
+        "abbreviation": "STD",
+        "slug": "standard",
+        "type": "standard"
+      },
+      "timeValid": true,
+      "dateValid": true,
+      "neutralSite": false,
+      "divisionCompetition": false,
+      "conferenceCompetition": false,
+      "previewAvailable": false,
+      "recapAvailable": false,
+      "boxscoreAvailable": true,
+      "lineupAvailable": false,
+      "gamecastAvailable": true,
+      "playByPlayAvailable": true,
+      "conversationAvailable": true,
+      "commentaryAvailable": false,
+      "pickcenterAvailable": true,
+      "summaryAvailable": false,
+      "liveAvailable": true,
+      "ticketsAvailable": true,
+      "shotChartAvailable": false,
+      "timeoutsAvailable": false,
+      "possessionArrowAvailable": false,
+      "onWatchESPN": false,
+      "recent": true,
+      "bracketAvailable": false,
+      "wallclockAvailable": true,
+      "gameSource": {
+        "id": "2",
+        "description": "feed",
+        "state": "full"
+      },
+      "boxscoreSource": {
+        "id": "2",
+        "description": "feed",
+        "state": "full"
+      },
+      "playByPlaySource": {
+        "id": "2",
+        "description": "feed",
+        "state": "full"
+      },
+      "linescoreSource": {
+        "id": "2",
+        "description": "feed",
+        "state": "full"
+      },
+      "statsSource": {
+        "id": "2",
+        "description": "feed",
+        "state": "full"
+      },
+      "venue": {
+        "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/venues/3891?lang=en&region=us",
+        "id": "3891",
+        "fullName": "NRG Stadium",
+        "address": {
+          "city": "Houston",
+          "state": "TX",
+          "zipCode": "77054"
+        },
+        "grass": false,
+        "indoor": true,
+        "images": [
+          {
+            "href": "https://a.espncdn.com/i/venues/nfl/day/3891.jpg",
+            "width": 2000,
+            "height": 1125,
+            "alt": "",
+            "rel": [
+              "full",
+              "day"
+            ]
+          },
+          {
+            "href": "https://a.espncdn.com/i/venues/nfl/day/interior/3891.jpg",
+            "width": 2000,
+            "height": 1125,
+            "alt": "",
+            "rel": [
+              "full",
+              "day",
+              "interior"
+            ]
+          }
+        ]
+      },
+      "weather": {
+        "$ref": "http://sports.core.api.espn.com/v2/weather/zip/77054?lang=en&region=us",
+        "type": "Current Conditions",
+        "displayValue": "1",
+        "zipCode": "77054",
+        "lastUpdated": "2025-01-11T22:47Z",
+        "windSpeed": 16,
+        "windDirection": "N",
+        "temperature": 52,
+        "highTemperature": 52,
+        "lowTemperature": 52,
+        "conditionId": "Sunny",
+        "gust": 16,
+        "precipitation": 0,
+        "link": {
+          "language": "en-US",
+          "rel": [
+            "77054"
+          ],
+          "href": "http://www.accuweather.com/en/us/nrg-stadium-tx/77002/current-weather/43039_poi?lang=en-us",
+          "text": "Weather",
+          "shortText": "Weather",
+          "isExternal": true,
+          "isPremium": false
+        }
+      },
+      "competitors": [
+        {
+          "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/competitors/34?lang=en&region=us",
+          "id": "34",
+          "uid": "s:20~l:28~t:34",
+          "type": "team",
+          "order": 0,
+          "homeAway": "home",
+          "team": {
+            "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/teams/34?lang=en&region=us"
+          },
+          "score": {
+            "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/competitors/34/score?lang=en&region=us"
+          },
+          "linescores": {
+            "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/competitors/34/linescores?lang=en&region=us"
+          },
+          "roster": {
+            "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/competitors/34/roster?lang=en&region=us"
+          },
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/competitors/34/statistics?lang=en&region=us"
+          },
+          "leaders": {
+            "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/competitors/34/leaders?lang=en&region=us"
+          },
+          "record": {
+            "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/types/2/teams/34/record?lang=en&region=us"
+          }
+        },
+        {
+          "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/competitors/24?lang=en&region=us",
+          "id": "24",
+          "uid": "s:20~l:28~t:24",
+          "type": "team",
+          "order": 1,
+          "homeAway": "away",
+          "team": {
+            "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/teams/24?lang=en&region=us"
+          },
+          "score": {
+            "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/competitors/24/score?lang=en&region=us"
+          },
+          "linescores": {
+            "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/competitors/24/linescores?lang=en&region=us"
+          },
+          "roster": {
+            "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/competitors/24/roster?lang=en&region=us"
+          },
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/competitors/24/statistics?lang=en&region=us"
+          },
+          "leaders": {
+            "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/competitors/24/leaders?lang=en&region=us"
+          },
+          "record": {
+            "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/types/2/teams/24/record?lang=en&region=us"
+          }
+        }
+      ],
+      "notes": [
+        {
+          "type": "event",
+          "headline": "AFC Wild Card Playoffs"
+        }
+      ],
+      "situation": {
+        "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/situation?lang=en&region=us"
+      },
+      "status": {
+        "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/status?lang=en&region=us"
+      },
+      "odds": {
+        "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/odds?lang=en&region=us"
+      },
+      "broadcasts": {
+        "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/broadcasts?lang=en&region=us"
+      },
+      "tickets": {
+        "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/tickets?lang=en&region=us"
+      },
+      "officials": {
+        "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/officials?lang=en&region=us"
+      },
+      "details": {
+        "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/plays?lang=en&region=us"
+      },
+      "leaders": {
+        "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/leaders?lang=en&region=us"
+      },
+      "links": [
+        {
+          "language": "en-US",
+          "rel": [
+            "live",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/game?gameId=401671878",
+          "text": "Gamecast",
+          "shortText": "Gamecast",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "live",
+            "sportscenter",
+            "app",
+            "event"
+          ],
+          "href": "sportscenter://x-callback-url/showGame?sportName=football&leagueAbbrev=nfl&gameId=401671878",
+          "text": "Gamecast",
+          "shortText": "Gamecast",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "now",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/game/_/gameId/401671878",
+          "text": "Now",
+          "shortText": "Now",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "teamstats",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/matchup?gameId=401671878",
+          "text": "Team Stats",
+          "shortText": "Team Stats",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "boxscore",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/boxscore/_/gameId/401671878",
+          "text": "Box Score",
+          "shortText": "Box Score",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "boxscore",
+            "sportscenter",
+            "app",
+            "event"
+          ],
+          "href": "sportscenter://x-callback-url/showGame?sportName=football&leagueAbbrev=nfl&gameId=401671878",
+          "text": "Box Score",
+          "shortText": "Box Score",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "gamecast",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/gamecast/_/gameId/401671878",
+          "text": "Gamecast",
+          "shortText": "Gamecast",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "gamecast",
+            "mobile",
+            "event"
+          ],
+          "href": "https://m.espn.com/nfl/gamecast?gameId=401671878&action=summary",
+          "text": "Gamecast",
+          "shortText": "Gamecast",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "gamecast",
+            "sportscenter",
+            "app",
+            "event"
+          ],
+          "href": "sportscenter://x-callback-url/showGame?sportName=football&leagueAbbrev=nfl&gameId=401671878",
+          "text": "Gamecast",
+          "shortText": "Gamecast",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "pbp",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/playbyplay/_/gameId/401671878",
+          "text": "Play-by-Play",
+          "shortText": "Play-by-Play",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "videos",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/video?gameId=401671878",
+          "text": "Videos",
+          "shortText": "Videos",
+          "isExternal": false,
+          "isPremium": false
+        }
+      ],
+      "predictor": {
+        "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/predictor?lang=en&region=us"
+      },
+      "probabilities": {
+        "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/probabilities?lang=en&region=us"
+      },
+      "powerIndexes": {
+        "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/powerindex?lang=en&region=us"
+      },
+      "format": {
+        "regulation": {
+          "periods": 4,
+          "displayName": "Quarter",
+          "slug": "quarter",
+          "clock": 900
+        },
+        "overtime": {
+          "periods": 0,
+          "displayName": "sudden-death",
+          "slug": "sudden-death",
+          "clock": 900
+        }
+      },
+      "drives": {
+        "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401671878/competitions/401671878/drives?lang=en&region=us"
+      },
+      "hasDefensiveStats": false
+    }
+  ],
+  "links": [
+    {
+      "language": "en-US",
+      "rel": [
+        "live",
+        "desktop",
+        "event"
+      ],
+      "href": "https://www.espn.com/nfl/game?gameId=401671878",
+      "text": "Gamecast",
+      "shortText": "Gamecast",
+      "isExternal": false,
+      "isPremium": false
+    },
+    {
+      "language": "en-US",
+      "rel": [
+        "live",
+        "sportscenter",
+        "app",
+        "event"
+      ],
+      "href": "sportscenter://x-callback-url/showGame?sportName=football&leagueAbbrev=nfl&gameId=401671878",
+      "text": "Gamecast",
+      "shortText": "Gamecast",
+      "isExternal": false,
+      "isPremium": false
+    },
+    {
+      "language": "en-US",
+      "rel": [
+        "now",
+        "desktop",
+        "event"
+      ],
+      "href": "https://www.espn.com/nfl/game/_/gameId/401671878",
+      "text": "Now",
+      "shortText": "Now",
+      "isExternal": false,
+      "isPremium": false
+    },
+    {
+      "language": "en-US",
+      "rel": [
+        "teamstats",
+        "desktop",
+        "event"
+      ],
+      "href": "https://www.espn.com/nfl/matchup?gameId=401671878",
+      "text": "Team Stats",
+      "shortText": "Team Stats",
+      "isExternal": false,
+      "isPremium": false
+    },
+    {
+      "language": "en-US",
+      "rel": [
+        "boxscore",
+        "desktop",
+        "event"
+      ],
+      "href": "https://www.espn.com/nfl/boxscore/_/gameId/401671878",
+      "text": "Box Score",
+      "shortText": "Box Score",
+      "isExternal": false,
+      "isPremium": false
+    },
+    {
+      "language": "en-US",
+      "rel": [
+        "boxscore",
+        "sportscenter",
+        "app",
+        "event"
+      ],
+      "href": "sportscenter://x-callback-url/showGame?sportName=football&leagueAbbrev=nfl&gameId=401671878",
+      "text": "Box Score",
+      "shortText": "Box Score",
+      "isExternal": false,
+      "isPremium": false
+    },
+    {
+      "language": "en-US",
+      "rel": [
+        "gamecast",
+        "desktop",
+        "event"
+      ],
+      "href": "https://www.espn.com/nfl/gamecast/_/gameId/401671878",
+      "text": "Gamecast",
+      "shortText": "Gamecast",
+      "isExternal": false,
+      "isPremium": false
+    },
+    {
+      "language": "en-US",
+      "rel": [
+        "gamecast",
+        "mobile",
+        "event"
+      ],
+      "href": "https://m.espn.com/nfl/gamecast?gameId=401671878&action=summary",
+      "text": "Gamecast",
+      "shortText": "Gamecast",
+      "isExternal": false,
+      "isPremium": false
+    },
+    {
+      "language": "en-US",
+      "rel": [
+        "gamecast",
+        "sportscenter",
+        "app",
+        "event"
+      ],
+      "href": "sportscenter://x-callback-url/showGame?sportName=football&leagueAbbrev=nfl&gameId=401671878",
+      "text": "Gamecast",
+      "shortText": "Gamecast",
+      "isExternal": false,
+      "isPremium": false
+    },
+    {
+      "language": "en-US",
+      "rel": [
+        "pbp",
+        "desktop",
+        "event"
+      ],
+      "href": "https://www.espn.com/nfl/playbyplay/_/gameId/401671878",
+      "text": "Play-by-Play",
+      "shortText": "Play-by-Play",
+      "isExternal": false,
+      "isPremium": false
+    },
+    {
+      "language": "en-US",
+      "rel": [
+        "videos",
+        "desktop",
+        "event"
+      ],
+      "href": "https://www.espn.com/nfl/video?gameId=401671878",
+      "text": "Videos",
+      "shortText": "Videos",
+      "isExternal": false,
+      "isPremium": false
+    }
+  ],
+  "venues": [
+    {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl/venues/3891?lang=en&region=us"
+    }
+  ],
+  "weather": {
+    "$ref": "http://sports.core.api.espn.com/v2/weather/zip/77054?lang=en&region=us",
+    "type": "Current Conditions",
+    "displayValue": "1",
+    "zipCode": "77054",
+    "lastUpdated": "2025-01-11T22:47Z",
+    "windSpeed": 16,
+    "windDirection": "N",
+    "temperature": 52,
+    "highTemperature": 52,
+    "lowTemperature": 52,
+    "conditionId": "Sunny",
+    "gust": 16,
+    "precipitation": 0,
+    "link": {
+      "language": "en-US",
+      "rel": [
+        "77054"
+      ],
+      "href": "http://www.accuweather.com/en/us/nrg-stadium-tx/77002/current-weather/43039_poi?lang=en-us",
+      "text": "Weather",
+      "shortText": "Weather",
+      "isExternal": true,
+      "isPremium": false
+    }
+  },
+  "league": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl?lang=en&region=us"
+  }
+}

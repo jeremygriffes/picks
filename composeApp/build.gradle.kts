@@ -51,6 +51,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(project.dependencies.platform(libs.koin.bom))
+            implementation(project.dependencies.platform(libs.firebase.bom))
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
