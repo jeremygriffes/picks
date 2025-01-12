@@ -11,6 +11,7 @@ import net.slingspot.picks.data.upsert
 import net.slingspot.picks.model.football.Contest
 import net.slingspot.picks.model.football.Franchise
 import net.slingspot.picks.model.football.Schedule
+import net.slingspot.picks.server.data.NflDataSource
 import net.slingspot.picks.server.espn.data.EspnApi
 import net.slingspot.picks.server.espn.data.cache.EspnCache
 import net.slingspot.picks.server.espn.data.refresh.periodicallyRefresh
@@ -25,7 +26,6 @@ import net.slingspot.picks.server.espn.model.toFranchise
 import net.slingspot.picks.server.espn.model.toSchedule
 import net.slingspot.picks.server.espn.model.updateFrom
 import net.slingspot.picks.util.currentSeason
-import net.slingspot.picks.server.data.NflDataSource
 
 internal class EspnRepository(
     private val cache: EspnCache,
@@ -53,7 +53,7 @@ internal class EspnRepository(
             val eventsByWeek: Map<Int, List<Event>> = weeks.associate { it.number to eventsOf(it) }
             val allEvents = eventsByWeek.values.flatten()
             val franchisesThisSeason = teams.map { it.toFranchise() }.toSet()
-            val scheduleThisSeason = season.toSchedule(franchisesThisSeason, allEvents)
+            val scheduleThisSeason = season.toSchedule(franchisesThisSeason, allEvents, api)
 
             franchises[year] = franchisesThisSeason
             schedule[year] = scheduleThisSeason

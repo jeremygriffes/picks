@@ -8,6 +8,8 @@ class TeamTable(fileSystem: FileSystem) : FileStorage<String, Team>(
     fileSystem,
     "team"
 ) {
+    private val withUnknownKeys = Json { ignoreUnknownKeys = true }
+
     override fun keyOf(type: Team) = type.id
-    override fun deserialize(json: String) = Json.decodeFromString<Team>(json)
+    override fun deserialize(json: String) = withUnknownKeys.decodeFromString<Team>(json)
 }

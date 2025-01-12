@@ -8,14 +8,13 @@ import net.slingspot.picks.model.football.Franchise
 @Serializable
 data class Team(
     val id: String,
-    val guid: String,
     val location: String,
     val displayName: String,
     val abbreviation: String,
-    val color: String,
-    val alternateColor: String,
+    val color: String? = null,
+    val alternateColor: String? = null,
     val isActive: Boolean,
-    val logos: List<Logo>
+    val logos: List<Logo> = emptyList()
 ) : EspnModel {
     override fun serialize() = Json.encodeToString(this)
 }
