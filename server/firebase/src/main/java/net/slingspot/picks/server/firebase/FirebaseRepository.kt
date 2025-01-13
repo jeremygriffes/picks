@@ -8,6 +8,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.cloud.FirestoreClient
 import net.slingspot.picks.model.entities.identity.User
 import net.slingspot.picks.server.data.DataAccess
+import net.slingspot.picks.server.firebase.model.toUser
 
 class FirebaseRepository : DataAccess {
     private val auth: FirebaseAuth
@@ -15,11 +16,10 @@ class FirebaseRepository : DataAccess {
 
     init {
         val json = requireNotNull(object {}.javaClass.getResourceAsStream(FIREBASE_JSON))
-
         val credentials = GoogleCredentials.fromStream(json)
-        val builder = FirebaseOptions.Builder()
-        builder.setCredentials(credentials)
-        val options = builder.build()
+        val options = FirebaseOptions.builder()
+            .setCredentials(credentials)
+            .build()
 
         FirebaseApp.initializeApp(options)
 
@@ -27,9 +27,9 @@ class FirebaseRepository : DataAccess {
         store = FirestoreClient.getFirestore()
     }
 
-    override fun users() = store.collection("users").get()
-        .get().documents
-        .mapNotNull { it.toObject(User::class.java) }
+    override suspend fun users(): List<User> = store
+        .collection("users")
+        .eachDocument { toUser() }
 
     companion object {
         private const val FIREBASE_JSON = "/picks-firebase-admin.json"

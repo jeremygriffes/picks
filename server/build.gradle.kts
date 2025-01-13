@@ -22,8 +22,6 @@ dependencies {
     implementation(projects.shared)
 
     implementation(project.dependencies.platform(libs.koin.bom))
-    implementation(project.dependencies.platform(libs.firebase.bom))
-    implementation(libs.firebase.firestore)
     implementation(libs.koin.core)
     implementation(libs.kotlinx.datetime)
     implementation(libs.ktor.client.core)
