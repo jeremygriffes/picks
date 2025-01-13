@@ -37,7 +37,7 @@ fun main() {
         dataAccess = koin.get<DataAccess>()
     }
 
-    runBlocking { nflDataSource.initialize(clock.currentSeason()) }
+    runBlocking { nflDataSource.initialize(clock.currentSeason(), rebuildCache = true) }
 
     embeddedServer(CIO, port = SERVER_PORT, host = "0.0.0.0", module = Application::module)
         .start(wait = true)

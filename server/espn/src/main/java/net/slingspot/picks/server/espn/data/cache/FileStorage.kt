@@ -59,6 +59,18 @@ abstract class FileStorage<P : Any, T : EspnModel>(
             }
     }
 
+    override suspend fun drop() {
+        try {
+            fileSystem.list(path).forEach {
+                fileSystem.delete(it)
+            }
+        } catch (_: Throwable) {
+            // Ignored
+        }
+
+        data.clear()
+    }
+
     private fun load(key: P): T? {
         return load(path / key.toString())
     }
@@ -73,10 +85,13 @@ abstract class FileStorage<P : Any, T : EspnModel>(
     private fun load(filePath: Path): T? {
         return if (!fileSystem.exists(path))
             null
-        else
+        else try {
             deserialize(
                 fileSystem.read(filePath) { readUtf8() }
             )
+        } catch (_: Throwable) {
+            null
+        }
     }
 
     private fun save(type: T) {

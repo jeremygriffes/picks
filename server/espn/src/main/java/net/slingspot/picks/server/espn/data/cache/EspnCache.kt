@@ -10,4 +10,12 @@ class EspnCache(
     val weekTable = WeekTable(fileSystem)
     val eventTable = EventTable(fileSystem)
     val scoresTable = ScoresTable(fileSystem)
+
+    suspend fun eraseEverything() {
+        seasonTable.drop()
+        teamTable.drop()
+        weekTable.drop()
+        eventTable.drop()
+        scoresTable.drop()
+    }
 }

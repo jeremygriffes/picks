@@ -14,6 +14,8 @@ interface Crud<P : Any, T : Any> {
     suspend fun update(type: T)
 
     suspend fun delete(key: P)
+
+    suspend fun drop()
 }
 
 suspend fun <P : Any, T : Any> Crud<P, T>.upsert(type: T) {

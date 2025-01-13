@@ -11,22 +11,32 @@
 
 ## Next
 
-- Firebase server account seems to work - check if db access works
 - Fix season builder so that all phases work correctly - pre, in, post season. Right now I think it
   builds only the current phase.
-- Support TBD contests.
 
-Probably caused by TBD game:
+Fix /users db access:
 
-```
-Exception in thread "main" java.util.NoSuchElementException: Collection contains no element matching the predicate.
-        at net.slingspot.picks.server.espn.model.SeasonKt.contestants(Season.kt:87)
-        at net.slingspot.picks.server.espn.model.SeasonKt.toSchedule(Season.kt:49)
-        at net.slingspot.picks.server.espn.domain.EspnRepository.initialize(EspnRepository.kt:56)
-        at net.slingspot.picks.server.espn.domain.EspnRepository$initialize$1.invokeSuspend(EspnRepository.kt)
-        at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
-        at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
-```
+Bad type on operand stack
+Exception Details:
+Location:
+com/google/firestore/v1/RunQueryRequest$Builder.getReadTimeFieldBuilder()Lcom/google/protobuf/SingleFieldBuilderV3; @43: invokespecial
+Reason:
+Type 'com/google/protobuf/Timestamp' (current frame, stack[3]) is not assignable to 'com/google/protobuf/AbstractMessage'
+Current Frame:
+bci: @43
+flags: { }
+locals: { 'com/google/firestore/v1/RunQueryRequest$Builder' }
+stack: { 'com/google/firestore/v1/RunQueryRequest$Builder', uninitialized 24, uninitialized 24, 'com/google/protobuf/Timestamp', 'com/google/protobuf/GeneratedMessageV3$BuilderParent', integer }
+Bytecode:
+0000000: 2ab4 004a c700 322a b400 2310 079f 000a
+0000010: 2ab8 018d b500 5a2a bb00 4459 2ab4 005a
+0000020: c001 8b2a b601 6c2a b601 70b7 0173 b500
+0000030: 4a2a 01b5 005a 2a10 07b5 0023 2ab6 00c0
+0000040: 2ab4 004a b0                           
+Stackmap Table:
+same_frame(@23)
+same_frame(@54)
+
 
 ## Integration Tests
 

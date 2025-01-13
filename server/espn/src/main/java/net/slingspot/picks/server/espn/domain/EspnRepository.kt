@@ -43,8 +43,7 @@ internal class EspnRepository(
     override suspend fun initialize(year: Int, rebuildCache: Boolean) {
         mutex.withLock {
             if (rebuildCache) {
-                TODO()
-                // cache.eraseEverything()
+                cache.eraseEverything()
             }
 
             val teams = teamsOf(year)
