@@ -4,7 +4,7 @@ import net.slingspot.picks.model.football.Contest
 import net.slingspot.picks.model.football.Franchise
 import net.slingspot.picks.model.football.Schedule
 
-interface NflDataSource {
+interface NflRepository {
     suspend fun initialize(year: Int, rebuildCache: Boolean = false)
 
     suspend fun franchises(year: Int): Set<Franchise>

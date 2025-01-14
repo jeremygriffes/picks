@@ -7,10 +7,10 @@ import com.google.firebase.FirebaseOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.cloud.FirestoreClient
 import net.slingspot.picks.model.entities.identity.User
-import net.slingspot.picks.server.data.DataAccess
+import net.slingspot.picks.server.data.PicksRepository
 import net.slingspot.picks.server.firebase.model.toUser
 
-class FirebaseRepository : DataAccess {
+class FirebaseRepository : PicksRepository {
     private val auth: FirebaseAuth
     private val store: Firestore
 

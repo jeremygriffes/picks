@@ -11,7 +11,7 @@ import net.slingspot.picks.data.upsert
 import net.slingspot.picks.model.football.Contest
 import net.slingspot.picks.model.football.Franchise
 import net.slingspot.picks.model.football.Schedule
-import net.slingspot.picks.server.data.NflDataSource
+import net.slingspot.picks.server.data.NflRepository
 import net.slingspot.picks.server.espn.data.EspnApi
 import net.slingspot.picks.server.espn.data.cache.EspnCache
 import net.slingspot.picks.server.espn.data.refresh.periodicallyRefresh
@@ -32,7 +32,7 @@ internal class EspnRepository(
     private val api: EspnApi,
     private val clock: Clock,
     private val scope: CoroutineScope
-) : NflDataSource {
+) : NflRepository {
     private val mutex = Mutex()
 
     private val franchises = mutableMapOf<Int, Set<Franchise>>()

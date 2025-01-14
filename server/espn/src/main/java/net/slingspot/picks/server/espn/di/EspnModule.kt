@@ -12,7 +12,7 @@ import kotlinx.serialization.json.Json
 import net.slingspot.picks.server.espn.data.EspnApi
 import net.slingspot.picks.server.espn.data.cache.EspnCache
 import net.slingspot.picks.server.espn.domain.EspnRepository
-import net.slingspot.picks.server.data.NflDataSource
+import net.slingspot.picks.server.data.NflRepository
 import okio.FileSystem
 import org.koin.dsl.module
 
@@ -37,5 +37,5 @@ val espnModule = module {
     }
     single { EspnApi(get()) }
     single { EspnCache(FileSystem.SYSTEM) }
-    single<NflDataSource> { EspnRepository(get(), get(), get(), get()) }
+    single<NflRepository> { EspnRepository(get(), get(), get(), get()) }
 }

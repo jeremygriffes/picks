@@ -2,6 +2,6 @@ package net.slingspot.picks.server.data
 
 import net.slingspot.picks.model.entities.identity.User
 
-interface DataAccess {
+interface PicksRepository {
     suspend fun users(): List<User>
 }
